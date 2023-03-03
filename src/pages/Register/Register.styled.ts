@@ -1,0 +1,81 @@
+import styled from "styled-components";
+
+export const RegisterStyled = styled.div`
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* border: 2px red solid; */
+    /* padding: 50px 50px; */
+    width: 100%;
+  }
+  form input {
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    margin: 20px auto;
+    background-color: #2d3746;
+    color: #fff;
+    font-size: 16px;
+  }
+  form input::placeholder {
+    color: #fff;
+    font-size: 14px;
+  }
+  form label {
+    font-size: 18px;
+  }
+  .subContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+  }
+  .registerCon {
+    padding: 50px 50px;
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  }
+  .registerBtn {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-size: 18px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    width: 100%;
+    cursor: pointer;
+  }
+  .registerBtn:hover {
+    border: 1px black solid;
+    transition: 0.4s ease;
+  }
+  h1 {
+    font-size: 40px;
+    margin: 20px auto;
+  }
+  .loginBtn {
+    cursor: pointer;
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    border-radius: 7px;
+    font-size: 18px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+      rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  }
+`;
