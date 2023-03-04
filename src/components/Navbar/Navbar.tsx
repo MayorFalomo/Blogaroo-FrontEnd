@@ -47,7 +47,10 @@ const Navbar = (props: any) => {
               <li>Write </li>
             </NavLink>
             <li>All Users </li>
-            <li>About </li>
+            <NavLink to={`/get-post/${user.username}`}
+              style={({ isActive }) => ({
+                color: isActive ? "black" : "white",
+              })}><li>About </li></NavLink>
             <Link to="/login">
               <li onClick={handleLogOut}>Log Out </li>
             </Link>

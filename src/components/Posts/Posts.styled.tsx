@@ -12,14 +12,13 @@ export const PostsStyled = styled.div`
     gap: 20px;
     margin: auto 30px;
     position: relative;
-    z-index: 2;
     /* border: 2px red solid; */
     .postLight {
       position: fixed;
-      top: 200px;
+      top: 50px;
       left: 0;
       /* border: 2px red solid; */
-      z-index: -1;
+      z-index: -5;
     }
   }
 `;

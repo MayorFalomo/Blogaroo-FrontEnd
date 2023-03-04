@@ -60,6 +60,7 @@ export const WriteStyled = styled.div`
     border: none;
     outline: none;
     font-size: 25px;
+    white-space: pre-wrap;
   }
   .textInput::placeholder {
     font-size: 25px;

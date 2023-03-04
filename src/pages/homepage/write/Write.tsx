@@ -4,6 +4,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { WriteStyled } from "./Write.styled";
 import { Context } from "../../../helper/Context";
 import axios from "axios";
+import Footer from "../../../components/footer/Footer";
 
 const Write = () => {
   const [title, setTitle] = useState<string>("");
@@ -30,6 +31,7 @@ const Write = () => {
     //newPost is the object created when we create a new post, we defined what username is user.username, So when we create a new post this new object is created containing the users username and the profession
     const newPost = {
       username: user.username,
+      profession: user.profession,
       title,
       desc,
       tags,
@@ -44,7 +46,6 @@ const Write = () => {
     }
   };
 
-  console.log(photo);
 
   return (
     <WriteStyled>
@@ -80,7 +81,7 @@ const Write = () => {
                 className="textInput"
                 required
                 onChange={(e) => setDesc(e.target.value)}
-              ></textarea>
+              ></textarea><br/>
               <input
                 type="text"
                 className="category"
@@ -97,6 +98,7 @@ const Write = () => {
             </div>
           </form>
         </div>
+        <Footer/>
       </div>
     </WriteStyled>
   );

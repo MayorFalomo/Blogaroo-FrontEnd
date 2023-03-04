@@ -27,9 +27,6 @@ const SinglePost = (props: any) => {
   //OR USE THIS, WE CALL postId straightUp
   // const { postId } = useParams();
 
-  // console.log(location);
-  // console.log(post);
-
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/" + location.postId);
@@ -65,17 +62,6 @@ const SinglePost = (props: any) => {
       console.log(err);
     }
   };
-
-  // const showProfile = async () => {
-  //   try {
-  //     const res = await axios.get(`/posts/get-post/${post.username}`);
-  //     setUserPosts(res.data);
-  //     window.location.replace("/userProfile");
-  //     console.log(userPosts);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <SinglePostStyled>
@@ -139,9 +125,10 @@ const SinglePost = (props: any) => {
                 value={desc}
                 className="updateSinglePostDescInput"
                 onChange={(e) => setDesc(e.target.value)}
+                style={{whiteSpace: "pre-wrap"}}
               />
             ) : (
-              <p className="singlePostDescription">{desc} </p>
+              <p className="singlePostDescription" >{desc} </p>
             )}
             {updateMode ? (
               <button className="postUpdateBtn" onClick={handleUpdate}>

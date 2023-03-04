@@ -90,4 +90,8 @@ export const PostStyled = styled.div`
     font-size: 25px;
     cursor: pointer;
   }
+  .likesText{
+    font-size: 16px;
+    margin: 15px auto;
+  }
 `;

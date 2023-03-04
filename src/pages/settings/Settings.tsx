@@ -5,6 +5,7 @@ import { SettingsStyle } from "./Settings.styled";
 import { Context } from "../../helper/Context";
 import axios from "axios";
 import Link from "react-router";
+import Footer from "../../components/footer/Footer";
 
 type Props = {};
 
@@ -123,6 +124,7 @@ const Settings = (props: any) => {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     </SettingsStyle>
   );

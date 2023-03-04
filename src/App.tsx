@@ -11,6 +11,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import Settings from "./pages/settings/Settings";
 import UserProfile from "./pages/userProfile/userprofiles/UserProfile";
+import Comments from "./pages/comments/Comments";
 
 function App() {
   const { user } = useContext(Context);
@@ -43,6 +44,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/comments/:postId" element={<Comments posts={posts} />}/>
           <Route
             path="/get-post/:username"
             element={<UserProfile posts={posts} />}

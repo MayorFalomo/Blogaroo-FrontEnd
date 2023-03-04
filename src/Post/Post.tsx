@@ -1,6 +1,6 @@
 import React from "react";
 import { PostStyled } from "./Post.styled";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegHeart } from "react-icons/fa";
 import { IoHeartSharp } from "react-icons/io5";
@@ -13,6 +13,9 @@ type Props = {};
 
 const Post = (props: any) => {
   const { user } = useContext(Context);
+
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const details = JSON.parse(localStorage.getItem("BlogarooUser") || "{}");
   const [changeColor, setChangeColor] = useState<any>(false);
@@ -32,6 +35,11 @@ const Post = (props: any) => {
     // console.log(likeData);
   };
 
+  // console.log(props.post.likes, "This is Liked Array");
+  
+
+  
+
   const removeLike = async () => {
     setChangeColor(false);
     const likeData = {
@@ -49,6 +57,9 @@ const Post = (props: any) => {
     );
     setLikesArray(filtered);
   };
+
+  
+  
 
   return (
     <PostStyled>
@@ -69,14 +80,14 @@ const Post = (props: any) => {
                 <li>{new Date(props.post.createdAt).toDateString()}</li>
               </div>
               <div className="likeAndComment">
-                <p>
+                <Link to={`/comments/${props.post?._id}`} ><p>
                   {
                     <FaRegComment
                       className="likeIcon"
                       style={{ cursor: "pointer" }}
                     />
                   }{" "}
-                </p>
+                </p></Link>
 
                 {likesArray && (
                   <p>
@@ -99,8 +110,9 @@ const Post = (props: any) => {
                     )}
                   </p>
                 )}
-              </div>
-            </ul>
+                </div>
+              </ul>
+              <div className="likesText" >{likesArray && <p> {likesArray.length === 0 ? `No likes Yet!` : `Liked by ${likesArray[0].username} and ${likesArray.length -1} others`}</p>}</div>
             <Link to={`/post/${props.post?._id}`}>
               <h2 className="postTitle">{props.post.title}</h2>
             </Link>

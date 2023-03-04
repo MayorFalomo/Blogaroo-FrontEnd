@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
-export const SinglePostStyled = styled.div`
-  .singlePostContainer {
+export const CommentStyled = styled.div`
+.Comment{
+    border: 3px green solid;
+    /* height: 100vh; */
+    position: relative;
+}
+.commentsContainer{
+    margin: 150px auto;
+   .singlePostContainer {
     margin: 170px auto;
     .singlePostTags {
       display: flex;
@@ -117,4 +124,36 @@ export const SinglePostStyled = styled.div`
     line-height: 35px;
     white-space: pre-wrap;
   }
-`;
+  .comment{
+    /* border: 2px red solid; */
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    /* position: absolute;
+    bottom: 0; */
+  }
+  .commentInput{
+    /* padding: 30px ; */
+    height: 100px;
+    width: 400px;
+    background-color: #121b2a;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 24px;
+  }
+  .commentInput::placeholder{
+    color: white;
+    font-size: 24px;
+  }
+  .submitComment{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+  }
+}
+`
