@@ -23,7 +23,7 @@ export const ProfileStyled = styled.div`
       display: flex;
       align-items: center;
       gap: 30px;
-      margin: 20px 10px;
+      margin: 20px auto;
     }
     .postImage {
       background-color: black;

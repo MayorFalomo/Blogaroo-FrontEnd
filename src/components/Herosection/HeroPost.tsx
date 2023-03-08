@@ -24,7 +24,7 @@ const HeroPost = (props: any) => {
           </Link>
           <p className="heroText">{props.heroPost.desc.slice(0, 200)}...</p>
           <div className="profileFlex">
-            <div style={{backgroundImage: `url(${user.profilePic})`}} className="dp"> </div>
+            <div style={{backgroundImage: `url(${props.heroPost?.photo})`}} className="dp"> </div>
             <div className="profileName">
               <Link to={`/get-post/${props.heroPost.username}`}>
                 <h2 className="heroUsername">{props.heroPost.username} </h2>

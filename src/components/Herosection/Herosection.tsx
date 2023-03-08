@@ -1,21 +1,30 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { StyledHero } from "./Hero.styled";
 import HeroPost from "./HeroPost";
-// import AwesomeSlider from 'react-awesome-slider';
-// import withAutoplay from 'react-awesome-slider/dist/autoplay';
-// import 'react-awesome-slider/dist/styles.css';
 import Carousel from 'nuka-carousel';
-import Preload from "../preload/Preload";
+import { AppContext } from "../../helper/Context";
 type Props = {};
 
 const Herosection = (props: any) => {
   
+  const {loading, completed} = useContext(AppContext)
   const heroPost = props.posts;
 
  
   return (
     <StyledHero>
-     
+      {!completed ? (
+        <div className="contain">
+          {!loading ? (
+            <div className="loaders">
+              <span className="loader"></span>
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
+      ) : (
+        <>
           <div className="heroPostContainer" style={{ display: "flex", flexDirection: "column" }}>
             <Carousel wrapAround={true} slidesToShow={1} autoplay={true} autoplayInterval={6000} withoutControls={true}>
               {heroPost.map((heroPost: any) => (
@@ -25,6 +34,8 @@ const Herosection = (props: any) => {
               ))}
             </Carousel>
           </div>
+        </>
+      )}
     </StyledHero>
   );
 };

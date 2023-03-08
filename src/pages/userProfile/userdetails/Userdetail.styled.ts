@@ -59,6 +59,7 @@ export const UserDetailsStyled = styled.div`
     }
     .updateBioBtn {
       padding: 5px 10px;
+      cursor: pointer;
     }
     .bioInput {
       padding: 5px 10px;

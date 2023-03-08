@@ -31,10 +31,12 @@ export const StyledNav = styled.div`
     .logo{
       display: flex;
       font-size: 35px;
-      padding: 3px 3px;
-      background-color: #283241;
+      padding: 3px 5px;
+      background-color: #121b2a;
+      border-radius: 5px;
       box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
     }
+  
  }
 
     .subNavContainer{

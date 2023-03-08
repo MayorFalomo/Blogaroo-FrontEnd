@@ -10,6 +10,9 @@ import desert from "./desert.jpg";
 import { Context } from "../../helper/Context";
 import Preload from "../preload/Preload";
 import Leftlight from "../leftlight/Leftlight";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 
 type Props = {};
 
@@ -125,11 +128,12 @@ const SinglePost = (props: any) => {
                 {post.username === user?.username && (
                   <div className="iconFlex">
                     <span>
-                      {
+                        {
+                          <Tippy content='Upload Image'>
                         <AiOutlineEdit
                           onClick={() => setUpdateMode(true)}
                           style={{ fontSize: 30, cursor: "pointer" }}
-                        />
+                        /></Tippy>
                       }{" "}
                     </span>
                     <span onClick={handleDelete}>

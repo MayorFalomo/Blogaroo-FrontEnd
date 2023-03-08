@@ -71,13 +71,17 @@ export const PostStyled = styled.div`
     /* margin: 0 5px; */
   }
 
-  .catAndDate p {
-    cursor: pointer;
-  }
   .likeAndComment {
     display: flex;
     align-items: center;
     gap: 10px;
+    position: relative;
+    .noOfComments{
+      position: absolute;
+      right: 30px;
+      top: -10px;
+      color:white;
+    }
   }
   .likeIcon {
     font-size: 25px;

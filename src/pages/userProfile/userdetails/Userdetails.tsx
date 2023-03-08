@@ -108,7 +108,7 @@ const Userdetails = (props: any) => {
                       className="bioInput"
                       onChange={(e) => setBio(e.target.value)}
                     />
-                    <button type="submit" className="updateBioBtn">
+                    <button type="submit" className="updateBioBtn" style={{cursor: "pointer"}} >
                       Update Bio
                     </button>
                   </div>

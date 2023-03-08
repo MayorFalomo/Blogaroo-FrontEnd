@@ -9,6 +9,7 @@ export const UserStyled = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
     width: 100%;
+    margin: 20px 5px;
     .noPost{
       margin: 30px 0;
       display: flex;
@@ -19,12 +20,13 @@ export const UserStyled = styled.div`
     }
   }
    .userPostMap{
-    max-width: 400px;
+    max-width: 450px;
   }
  
   .subContainer {
     width: 400px;
   }
+
  
 }
 .loaders{

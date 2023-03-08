@@ -104,7 +104,6 @@ export const SinglePostStyled = styled.div`
   .singlePostInfo .authorImg {
     background-color: black;
     background-image: url("../desert.jpg");
-    /* background-image: url("./desert.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -113,7 +112,8 @@ export const SinglePostStyled = styled.div`
     border-radius: 50%;
   }
   .singlePostDescription {
-    font-size: 32px;
+    font-family: Inter;
+    font-size: 24px;
     width: 80%;
     line-height: 35px;
     white-space: pre-wrap;

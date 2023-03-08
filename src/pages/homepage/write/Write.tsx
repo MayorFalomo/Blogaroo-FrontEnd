@@ -28,7 +28,7 @@ const Write = () => {
       .post("https://api.cloudinary.com/v1_1/dsghy4siv/image/upload", formData)
       .then((res) => setPhoto(res.data.url))
       .catch((err) => console.log(err));
-          setSucesfullUpload(true)
+      setSucesfullUpload(true)
   };
 
   const handelSubmit = async (e: any) => {

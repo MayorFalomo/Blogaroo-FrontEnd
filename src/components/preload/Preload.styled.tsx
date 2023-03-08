@@ -17,13 +17,13 @@ color: #fff;
     }
     span{
         color:red;
+        font-size: 50px;
     }
 }
 .letterB{
     border: 2px white solid;
     padding:5px 10px;
             border-radius: 8px;
-
 }
 }
 @media (max-width: 340px){

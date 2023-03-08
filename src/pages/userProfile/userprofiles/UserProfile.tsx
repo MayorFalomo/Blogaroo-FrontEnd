@@ -23,9 +23,11 @@ const UserProfile = (props: any) => {
     const fetchProfile = async () => {
       await axios
         .get(`/posts/get-post/${pathname}`)
-        .then((res) => setUserPosts(res.data)).catch((err) => console.log(err));      
+        .then((res) => setUserPosts(res.data)).catch((err) => console.log(err));  
+      setCompleted(true)
     };
     fetchProfile();
+    
     //OR JUST USE THIS method JEJELY
     // axios.get(`/posts/get-post/${pathname}`).then((res) => {
     //   console.log(res.data);
@@ -40,14 +42,22 @@ const UserProfile = (props: any) => {
       .catch((err) => console.log(err));
   }, []);  
   
-  userPosts.map((post: any) => {
-    console.log(post);
-    
-  })
+  
 
   return (
     <UserStyled>
-     
+      {!completed ? (
+        <div className="contain">
+          {!loading ? (
+            <div className="loaders">
+              <span className="loader"></span>
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
+      ) : (
+        <>
           <div className="userProfileContainer" >
         
             <Navbar />
@@ -57,32 +67,23 @@ const UserProfile = (props: any) => {
                   <Userdetails user={user} />
                 </div>
               ))}
-        </div>
-        {/* {!completed ? (
-          <div className="contain">
-            {!loading ? (
-              <div className="loaders">
-                <span className="loader"></span>
-              </div>
-            ) : (
-              <h1>Loading</h1>
-            )}
-          </div>
-        ) : (
-          <> */}
+            </div>
+      
             <div className="userConProfile">
-              {/* {userPosts?.map((userPost: any) => (
+              {userPosts.posts?.reverse().map((userPost: any) => (
                 <div className="userPostMap" key={userPost._id}>
                   <Profile userPost={userPost} />{" "}
                 </div>
-              ))} */}
+              ))}
               <div className="noPost">{userPosts.length === 0 && <h1  >THIS USER HAS NO POST</h1>}</div>
             </div>
-          {/* </>
+            {/* </>
         )} */}
             <Leftlight />
             <Footer />
           </div>
+        </>
+      )}
     </UserStyled>
   );
 };

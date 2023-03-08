@@ -22,17 +22,21 @@ function App() {
 
   const { search } = useLocation();
 
-   const [loading, setLoading] = useState(false);
+   const [loaded, setLoaded] = useState(false);
+  const [completedPredload, setCompletedPreload] = useState(false);
+  
+  const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
+
   const [skip, setSkip] = useState(10)
   const [generalPosts, setGeneralPosts] = useState<any>()
   // console.log(search);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setCompleted(true);
-  //   }, 6000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      setCompletedPreload(true);
+    }, 6000);
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async (params:any) => {
@@ -49,14 +53,12 @@ function App() {
       setSkip(generalPosts?.length + 5);
     }
   }
-  // console.log(posts);
-  // console.log(user);
 
   return (
-    <AppContext.Provider value={{ posts, searchPost, setSearchPost, handleScroll }}>
-      {!completed ? (
+    <AppContext.Provider value={{ posts, searchPost, setSearchPost, handleScroll, completed, loading }}>
+      {!completedPredload ? (
         <div className="contain">
-          {!loading ? (
+          {!loaded ? (
             <div className="loader">
               <Preload />
             </div>
