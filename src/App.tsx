@@ -12,6 +12,8 @@ import Login from "./pages/Login/Login";
 import Settings from "./pages/settings/Settings";
 import UserProfile from "./pages/userProfile/userprofiles/UserProfile";
 import Comments from "./pages/comments/Comments";
+import Allusers from "./pages/allusers/Allusers";
+import Preload from "./components/preload/Preload";
 
 function App() {
   const { user } = useContext(Context);
@@ -20,38 +22,69 @@ function App() {
 
   const { search } = useLocation();
 
+   const [loading, setLoading] = useState(false);
+  const [completed, setCompleted] = useState(false);
+  const [skip, setSkip] = useState(10)
+  const [generalPosts, setGeneralPosts] = useState<any>()
   // console.log(search);
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCompleted(true);
+  //   }, 6000);
+  // }, []);
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get("/posts" + search);
+    const fetchPosts = async (params:any) => {
+      const res = await axios.get(`/posts/?page=1&limit=${params}` + search);
       setPosts(res.data);
-      // console.log(res.data);
+      setCompleted(true)
     };
-    fetchPosts();
+    fetchPosts(skip);
   }, [search]);
 
+  const handleScroll = (e: any) => {
+    const { offsetHeight, scrollTop, scrollHeight } = e.target;
+    if (offsetHeight + scrollTop >= scrollHeight) {
+      setSkip(generalPosts?.length + 5);
+    }
+  }
   // console.log(posts);
   // console.log(user);
 
   return (
-    <AppContext.Provider value={{ posts, searchPost, setSearchPost }}>
-      <div className="App">
-        <GlobalStyle />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/write" element={<Write />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/comments/:postId" element={<Comments posts={posts} />}/>
-          <Route
-            path="/get-post/:username"
-            element={<UserProfile posts={posts} />}
-          />
-          <Route path="/post/:postId" element={<SinglePost posts={posts} />} />
-        </Routes>
-      </div>
+    <AppContext.Provider value={{ posts, searchPost, setSearchPost, handleScroll }}>
+      {!completed ? (
+        <div className="contain">
+          {!loading ? (
+            <div className="loader">
+              <Preload />
+            </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
+      ) : (
+        <>
+          <div className="App">
+            <GlobalStyle />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/write" element={<Write />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/settings" element={<Settings />} />
+              <Route path="/allusers" element={<Allusers />} />
+              <Route path="/comments/:postId" element={<Comments posts={posts} />} />
+              <Route
+                path="/get-post/:username"
+                element={<UserProfile posts={posts} />}
+              />
+              <Route path="/post/:postId" element={<SinglePost posts={posts} />} />
+            </Routes>
+          </div>
+        </>
+      )}
     </AppContext.Provider>
   );
 }

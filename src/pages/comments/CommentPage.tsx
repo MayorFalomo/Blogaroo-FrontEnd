@@ -1,8 +1,4 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
-import Navbar from '../../components/Navbar/Navbar';
-import { Context } from '../../helper/Context';
+import React from 'react'
 import { CommentStyled } from './Comments.styled';
 
 type Props = {}
@@ -11,12 +7,15 @@ const CommentPage = (props: any) => {
  console.log(props.comment);
  
     
-    return (
-      <CommentStyled>
-            <div className='commentsContainer' >
-          {/* <p>{props?.comment?.comments} </p> */}
+  return (
+    <CommentStyled>
+      <div className='commentsPageContainer'>
+      <p> {props?.comment?.username}:</p>
+      <div className='mainComment' >
+          <div className='comments' > {props?.comment?.comments} </div>
         </div>
-            </CommentStyled>
+        </div>
+      </CommentStyled>
   )
 }
 

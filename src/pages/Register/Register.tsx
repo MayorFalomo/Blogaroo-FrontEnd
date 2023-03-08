@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { Context } from "../../helper/Context";
 import { RegisterStyled } from "./Register.styled";
 
@@ -14,7 +14,6 @@ const Register = (props: any) => {
   const [error, setError] = useState(false);
   const { dispatch } = useContext(Context);
 
-  const navigate = useNavigate();
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -72,7 +71,7 @@ const Register = (props: any) => {
                 type="text"
                 placeholder="Optional: E.g Student"
                 className="registerProfession"
-                required
+                // required
                 onChange={(e) => setProfession(e.target.value)}
               ></input>
               <label>Password </label>

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../helper/Context";
 import { StyledHero } from "./Hero.styled";
 
 type Props = {};
 
 const HeroPost = (props: any) => {
+  const {user} = useContext(Context)
   return (
     <StyledHero>
       <div className="heroContainer">
@@ -22,7 +24,7 @@ const HeroPost = (props: any) => {
           </Link>
           <p className="heroText">{props.heroPost.desc.slice(0, 200)}...</p>
           <div className="profileFlex">
-            <img src="./profile3.jpg" className="dp" alt="img" />
+            <div style={{backgroundImage: `url(${user.profilePic})`}} className="dp"> </div>
             <div className="profileName">
               <Link to={`/get-post/${props.heroPost.username}`}>
                 <h2 className="heroUsername">{props.heroPost.username} </h2>

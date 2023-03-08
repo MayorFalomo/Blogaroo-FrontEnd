@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const StyledHero = styled.div`
-  margin: 150px auto;
+  .heroPostContainer{
+    margin: 150px auto;
+  }
   .heroImg {
     background-position: center;
     background-repeat: no-repeat;
@@ -14,11 +16,16 @@ export const StyledHero = styled.div`
   }
   .heroImg img {
     border-radius: 15px;
+    width: 100%;
   }
   .dp {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    background-color: black;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   .profileFlex {
     display: flex;
@@ -39,6 +46,7 @@ export const StyledHero = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
+    border: 1px green red;
   }
   .heroCard {
     width: 40%;
@@ -62,5 +70,25 @@ export const StyledHero = styled.div`
   }
   .heroUsername {
     font-size: 23px;
+  }
+  @media (max-width: 950px) {
+    .heroContainer{
+      /* border: 2px yellow solid; */
+      display: flex;
+      flex-direction: column;
+    }
+    .heroCard{
+      /* border: 2px red solid; */
+      text-align: center;
+      width: 90%;
+    }
+    ul{
+      display: flex;
+      justify-content:center;
+    }
+    .profileFlex{
+      display: flex;
+      justify-content: center;
+    }
   }
 `;

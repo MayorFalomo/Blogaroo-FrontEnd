@@ -1,16 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "../../helper/Context";
 import Post from "../../Post/Post";
+import Leftlight from "../leftlight/Leftlight";
 import { PostsStyled } from "./Posts.styled";
 
 type Props = {};
 
 const Posts = (props: any) => {
-  const { searchPost } = useContext(AppContext);
+  const { searchPost, handleScroll } = useContext(AppContext);
 
+  const [loading, setLoading] = useState(false);
+  const [completed, setCompleted] = useState(false);
+
+  
   return (
     <PostsStyled>
-      <div className="Posts">
+      <div className="Posts" onScroll={handleScroll} >
+       
         {props.posts
           ?.filter((postings: any) => {
             if (searchPost == "") {
@@ -24,14 +30,15 @@ const Posts = (props: any) => {
           })
           .reverse()
           .map((post: any, index: any) => (
-            <div key={index}>
+            <div className="postsMap" key={index}>
               <Post post={post} />
             </div>
           ))}
-        <div className="postLight">
-          <img className="leftLight" src="../leftLight.svg" alt="img" />
-        </div>
+              <Leftlight />
+              {/* </>
+        )} */}
       </div>
+
     </PostsStyled>
   );
 };

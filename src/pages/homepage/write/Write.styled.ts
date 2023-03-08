@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 export const WriteStyled = styled.div`
   form {
+    /* border: 2px red solid; */
+    /* width: 80%; */
+  }
+  .writeStyle{
+    position: relative;
   }
   .WriteContainer {
     /* border: 2px red solid; */
@@ -21,9 +26,11 @@ export const WriteStyled = styled.div`
     font-size: 30px;
     border: 1px white solid;
     border-radius: 50%;
+    cursor: pointer;
   }
   .writeInput {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     padding: 15px 40px;
     background-color: #121b2a;
     /* background-color: #2d3746; */
@@ -32,6 +39,7 @@ export const WriteStyled = styled.div`
     border-radius: 10px;
     color: #fff;
     font-size: 25px;
+    /* border: 2px green solid; */
   }
   .writeInput::placeholder {
     font-size: 25px;
@@ -51,7 +59,8 @@ export const WriteStyled = styled.div`
     cursor: pointer;
   }
   .textInput {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     height: 100px;
     margin: 30px 10px;
     background-color: #121b2a;

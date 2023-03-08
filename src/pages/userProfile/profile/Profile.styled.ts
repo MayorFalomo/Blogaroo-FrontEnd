@@ -1,36 +1,35 @@
 import styled from "styled-components";
 
 export const ProfileStyled = styled.div`
-  .subContainer {
-    /* border: 3px red solid; */
-    width: 400px;
-    max-height: 700px;
-    margin: 20px 20px;
+
+  .profileSubContainer {
+    .userTitleAndDesc{
+      width: 100%;
+    }
     .userTitleAndDesc span {
       font-size: 30px;
       display: flex;
       line-height: 30px;
+      text-align: center;
+      margin: 0 10px;
     }
     .userTitleAndDesc p {
       line-height: 30px;
-      font-size: 18px;
+      font-size: 23px;
       margin: 10px auto;
-      /* border: 2px green solid; */
+      width: 90%;
     }
     .tagsAndDate {
       display: flex;
       align-items: center;
       gap: 30px;
-      margin: 10px auto;
+      margin: 20px 10px;
     }
     .postImage {
-      background-color: blue;
-      background-image: url("../desert.jpg");
+      background-color: black;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      max-width: 400px;
-      width: 100%;
       height: 300px;
       border-radius: 20px;
     }

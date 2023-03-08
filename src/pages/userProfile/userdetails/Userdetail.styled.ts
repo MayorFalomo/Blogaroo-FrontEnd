@@ -4,14 +4,14 @@ export const UserDetailsStyled = styled.div`
   .userDetailsContainer {
     border-bottom: 1px rgba(255, 255, 255, 0.12) solid;
     .bgColor {
-      width: 100vw;
       height: 300px;
       background-color: black;
       position: relative;
+      /* border: 3px red solid; */
     }
     .userImage {
       background-color: black;
-      background-image: url("../desert.jpg");
+      /* background-image: url("../desert.jpg"); */
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -24,7 +24,7 @@ export const UserDetailsStyled = styled.div`
       left: 20px;
     }
     .bioContainer {
-      margin: 100px 40px;
+      margin: 100px 10px;
       h1 {
         font-size: 40px;
         margin: 10px auto;

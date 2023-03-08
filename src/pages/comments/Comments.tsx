@@ -10,13 +10,14 @@ type Props = {}
 
 const Comments = (props: any) => {
 
+    const { user } = useContext(Context);
+
    const [post, setPost] = useState<any>({});
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [comments, setComments] = useState<any>(post.comments)
-
-  const { user } = useContext(Context);
+  const [commentAdded, setCommentAdded] = useState<any>(false)
   
 
   //Using useParams is better than using useLocation and saying split("/") just to get the id from the URL, useParams() does the exact same thing but more straightforward
@@ -35,7 +36,7 @@ const Comments = (props: any) => {
     getPost();
   }, [location.postId]);
 
-  const handleComment = async() => {
+  const handleComment = async () => {
     const commentData = {
       username: user.username,
       photo: user.photo,
@@ -44,12 +45,12 @@ const Comments = (props: any) => {
     }
     await axios.put(`/posts/comments`, commentData).catch((err) => console.log(err))
     setComments([...comments, commentData])
-  }
-  // console.log(post.comments[0]?.comments);
+    setCommentAdded(true)
 
-  // console.log(post?.comments.map((posts:any) => (
-  //       console.log(posts.comments)
-  //     )));
+    setTimeout(() => {
+      setCommentAdded(false)
+    }, 6000)
+  }
     
 
     
@@ -61,7 +62,7 @@ const Comments = (props: any) => {
         <Navbar />
         <div className="singlePostContainer">
           <div className="singlePostTags">
-            {tags}{" "}
+            <span className='tags' >{tags}</span>
             <ul>
               <li> {new Date(post?.createdAt).toDateString()} </li>{" "}
             </ul>
@@ -72,7 +73,7 @@ const Comments = (props: any) => {
           </div>
           <div className="singlePostInfo">
             <div className="Author">
-              <div className="authorImg"> </div>
+              <div className="authorImg" style={{backgroundImage: `url(${user.profilePic})`}}> </div>
               <div className="authorsInfo">
                 <Link to={`/get-post/${post.username}`}>
                   <b>{post?.username} </b>
@@ -86,17 +87,21 @@ const Comments = (props: any) => {
               style={{ backgroundImage: `url(${post.photo})` }}
             ></div>
           </div>
-        </div>
+            </div>
+            <h1  className='commentsHeading' >Comments </h1>
           </div>
+          <div className='seeCommentsMap' >
           {post?.comments?.map((comment: any, index:any) => (
-            <div key={index} >
+            <div key={index} className='mapContainer' >
               <CommentPage comment={comment} />
             </div>
-      ))}
+          ))}
+            </div>
           <div className='comment' >
               <textarea typeof='text' onChange={(e:any) => setComments(e.target.value)} className='commentInput' placeholder='Add a comment' />
               </div>
-                    <button onClick={handleComment} className='submitComment' type='submit' >Comment </button>
+          <button onClick={handleComment} className='submitComment' disabled={commentAdded} type='submit' >Comment </button>
+          {commentAdded ? <p className='commentSuccess' >"Your comment has been added"</p> : ""}
         </div>
         </div>
       </CommentStyled>

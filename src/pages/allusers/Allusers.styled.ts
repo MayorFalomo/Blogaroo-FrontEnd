@@ -1,31 +1,42 @@
 import styled from "styled-components";
 
-export const UserStyled = styled.div`
-.userProfileContainer{
-  position: relative;
-  width: 100%;
-  .userConProfile {
-      display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 30px;
-    width: 100%;
-    .noPost{
-      margin: 30px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      text-align: center;
+export const AllUsersStyled = styled.div`
+.allUsersContainer{
+    position:relative;
+}
+.allUsersMap{
+     display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2rem;
+   
+    margin: 180px auto;
+    .subMapContainer{
+        padding: 20px 20px;
+        border: 2px  #2d3746 solid;
+        border-radius:10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
     }
-  }
-   .userPostMap{
-    max-width: 400px;
-  }
- 
-  .subContainer {
-    width: 400px;
-  }
- 
+}
+.UserContainer {
+    .userImg{
+        width: 150px;
+        height: 150px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        background-color: black;
+    }
+    h1{
+        text-align: center;
+        margin: 20px 20px;
+    }
+    p{
+        text-align: center;
+        margin: 20px;
+        font-size: 24px;
+    }
 }
 .loaders{
     display: flex;
@@ -105,14 +116,4 @@ export const UserStyled = styled.div`
           box-shadow: .2em -.2em 0 0 currentcolor;
         }
       }
-
-@media (max-width: 750px) {
-
-  .userPostMap{
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    margin: 0 auto;
-  }
-}
-`;
+`

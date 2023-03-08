@@ -6,6 +6,8 @@ import { Context } from "../../helper/Context";
 import axios from "axios";
 import Link from "react-router";
 import Footer from "../../components/footer/Footer";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
 
 type Props = {};
 
@@ -26,7 +28,6 @@ const Settings = (props: any) => {
       .post("https://api.cloudinary.com/v1_1/dsghy4siv/image/upload", formData)
       .then((res) => setProfilePic(res.data.url))
       .catch((err) => console.log(err));
-    // setFile(profilePic);
   };
 
   const handleSubmit = async (e: any) => {
@@ -49,9 +50,6 @@ const Settings = (props: any) => {
     }
   };
 
-  // console.log(profilePic, "This is profilePic");
-  // console.log(file, "This is File");
-  // console.log(user);
 
   return (
     <SettingsStyle>
@@ -66,15 +64,15 @@ const Settings = (props: any) => {
               </div>
               <h2>Profile Picture </h2>
               <form onSubmit={handleSubmit}>
-                {/* <label>Profile Picture </label> */}
                 <div className="settingsUpdate">
                   <div className="file">
                     <div
                       className="profileImage"
                       style={{ backgroundImage: `url(${user.profilePic})` }}
                     ></div>
-                    <label htmlFor="fileInput">
-                      Upload Image : <HiUserGroup className="hiUser" />
+                    <label className="fileInput" htmlFor="fileInput">
+                      Upload Image : 
+                        <HiUserGroup className="hiUser" />
                     </label>
                     <input
                       type="file"
@@ -124,7 +122,6 @@ const Settings = (props: any) => {
             </div>
           </div>
         </div>
-        <Footer/>
       </div>
     </SettingsStyle>
   );

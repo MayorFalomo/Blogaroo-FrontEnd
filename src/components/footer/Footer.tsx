@@ -2,10 +2,12 @@ import React from "react";
 import { RxTwitterLogo } from "react-icons/rx";
 import { BsGithub } from "react-icons/bs";
 import { BsWhatsapp } from "react-icons/bs";
+import { FooterStyle } from "./Footer.styled";
 type Props = {};
 
 const Footer = (props: any) => {
   return (
+    <FooterStyle>
     <div
       className="footer"
       style={{
@@ -43,7 +45,8 @@ const Footer = (props: any) => {
           <li>{<BsWhatsapp style={{ cursor: "pointer" }} />} </li>
         </a>
       </ul>
-    </div>
+      </div>
+      </FooterStyle>
   );
 };
 

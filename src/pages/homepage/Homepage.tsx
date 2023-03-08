@@ -9,7 +9,7 @@ import Posts from "../../components/Posts/Posts";
 import { AppContext } from "../../helper/Context";
 
 const Homepage = () => {
-  const { posts } = useContext(AppContext);
+  const { posts} = useContext(AppContext);
 
   //useLocation would usually give you a object containing search,key, pathname etc but what i need in this instance is search:""
   //If you log {search} you would get something like /?user={post.username}

@@ -2,9 +2,32 @@ import styled from "styled-components";
 
 export const CommentStyled = styled.div`
 .Comment{
-    border: 3px green solid;
+    /* border: 3px green solid; */
     /* height: 100vh; */
     position: relative;
+}
+.seeCommentsMap{
+
+  .mapContainer{
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 40%;
+    padding: 20px 20px;
+    font-size: 24px;
+  }
+  .commentsPageContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .comments{
+        border: 3px rgba(255, 255, 255, 0.12) solid;
+        padding: 15px 30px;
+        border-top-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+  }
 }
 .commentsContainer{
     margin: 150px auto;
@@ -41,7 +64,8 @@ export const CommentStyled = styled.div`
   .singlePostIconFlex {
     display: flex;
     justify-content: center;
-    margin: auto;
+    margin:5px auto;
+
     .singlePostTitleInput {
       padding: 10px 25px;
       font-size: 20px;
@@ -58,6 +82,12 @@ export const CommentStyled = styled.div`
       margin: 20px auto;
       letter-spacing: 1px;
       font-size: 35px;
+    }
+    .commentSuccess{
+      display: flex;
+      justify-content: center;
+      color: green;
+      font-size: 24px;
     }
   }
   .singlePostInfo {
@@ -105,12 +135,12 @@ export const CommentStyled = styled.div`
       align-items: flex-start;
       flex-direction: column;
       gap: 2px;
+    
     }
   }
   .singlePostInfo .authorImg {
     background-color: black;
-    background-image: url("../desert.jpg");
-    /* background-image: url("./desert.jpg"); */
+    /* background-image: url("../desert.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,6 +154,9 @@ export const CommentStyled = styled.div`
     line-height: 35px;
     white-space: pre-wrap;
   }
+  .singlePostContainer p{
+    margin-top: 5px;
+  }
   .comment{
     /* border: 2px red solid; */
     margin: 30px auto;
@@ -135,7 +168,7 @@ export const CommentStyled = styled.div`
   .commentInput{
     /* padding: 30px ; */
     height: 100px;
-    width: 400px;
+    width: 600px;
     background-color: #121b2a;
     color: white;
     border: none;
@@ -155,5 +188,17 @@ export const CommentStyled = styled.div`
     margin: auto;
     cursor: pointer;
   }
-}
+  .commentSuccess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    font-size: 24px;
+    margin: 0 auto;
+  }
+  .commentsHeading{
+    display: flex;
+    justify-content: center;
+  }
+  }
 `

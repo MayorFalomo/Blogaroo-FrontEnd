@@ -2,13 +2,13 @@ import React from "react";
 import { PostStyled } from "./Post.styled";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
-import { FaRegHeart } from "react-icons/fa";
 import { IoHeartSharp } from "react-icons/io5";
 import { FaRegComment } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { Context } from "../helper/Context";
-
 import axios from "axios";
+
+
 type Props = {};
 
 const Post = (props: any) => {
@@ -74,18 +74,18 @@ const Post = (props: any) => {
             ></div>
             <ul>
               <div className="catAndDate">
-                <Link to={`/categories/${props.post.tags}`}>
+                {/* <Link to={`/categories/${props.post.tags}`}> */}
                   <p>{props.post.tags}</p>
-                </Link>
+                {/* </Link> */}
                 <li>{new Date(props.post.createdAt).toDateString()}</li>
               </div>
               <div className="likeAndComment">
                 <Link to={`/comments/${props.post?._id}`} ><p>
                   {
-                    <FaRegComment
+                        <FaRegComment
                       className="likeIcon"
                       style={{ cursor: "pointer" }}
-                    />
+                      />
                   }{" "}
                 </p></Link>
 
@@ -120,7 +120,7 @@ const Post = (props: any) => {
             <div className="profile">
               <div
                 className="profilePic"
-                // style={{ backgroundImage: `url(${user.profilePic})` }}
+                style={{ backgroundImage: `url(${props.post?.photo})` }}
               ></div>
               <div className="names">
                 <Link to={`/get-post/${props.post.username}`}>

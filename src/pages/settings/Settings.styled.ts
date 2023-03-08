@@ -6,9 +6,14 @@ export const SettingsStyle = styled.div`
     .subContainer {
       display: flex;
       justify-content: center;
-      height: 50vh;
+      /* height: 50vh; */
     }
   }
+  
+  .settingsWrapper {
+    width: 60%;
+  }
+ 
   .main h2 {
     margin: 10px auto;
   }
@@ -25,9 +30,6 @@ export const SettingsStyle = styled.div`
     cursor: pointer;
   }
 
-  .settingsWrapper {
-    width: 60%;
-  }
   .settingsUpdate {
     display: flex;
     flex-direction: column;
@@ -60,11 +62,16 @@ export const SettingsStyle = styled.div`
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    
   }
   .profileImage {
     width: 70px;
     height: 70px;
     border-radius: 50%;
+    background-color: black;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
   }
 
   .file {
@@ -85,5 +92,27 @@ export const SettingsStyle = styled.div`
     border: 2px black solid;
     background-color: transparent;
     color: #fff;
+  }
+ 
+  .file{
+    width: 100%;
+    margin: 10px auto;
+  }
+  @media (max-width:800px) {
+    .settingsWrapper{
+      width: 90%;
+      /* border: 2px red solid; */
+      display: flex;
+    }
+   
+    .main{
+      /* border: 2px blue solid; */
+      width: 100%;
+    }
+  }
+  @media (max-width:500px) {
+     .heading p{
+     display: none;
+    }
   }
 `;

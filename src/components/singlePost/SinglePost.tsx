@@ -8,6 +8,8 @@ import { SinglePostStyled } from "./SinglePost.styled";
 import { AiOutlineEdit } from "react-icons/ai";
 import desert from "./desert.jpg";
 import { Context } from "../../helper/Context";
+import Preload from "../preload/Preload";
+import Leftlight from "../leftlight/Leftlight";
 
 type Props = {};
 
@@ -17,6 +19,8 @@ const SinglePost = (props: any) => {
   const [desc, setDesc] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [updateMode, setUpdateMode] = useState<boolean>(false);
+   const [loading, setLoading] = useState(false);
+  const [completed, setCompleted] = useState(false);
 
   const [userPosts, setUserPosts] = useState<any>([]);
 
@@ -34,6 +38,7 @@ const SinglePost = (props: any) => {
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setTags(res.data.tags);
+      setCompleted(true)
     };
     getPost();
   }, [location.postId]);
@@ -65,81 +70,97 @@ const SinglePost = (props: any) => {
 
   return (
     <SinglePostStyled>
-      <div className="singlePostContainer">
-        <Navbar />
-        <div className="singlePostContainer">
-          <div className="singlePostTags">
-            {tags}{" "}
-            <ul>
-              <li> {new Date(post?.createdAt).toDateString()} </li>{" "}
-            </ul>
-          </div>
-          <div className="iconFlexContainer">
-            <div className="singlePostIconFlex">
-              {updateMode ? (
-                <input
-                  type="text"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  className="singlePostTitleInput"
-                  autoFocus
-                />
-              ) : (
-                <h1>{title} </h1>
-              )}
+      {!completed ? (
+        <div className="contain">
+          {!loading ? (
+            <div className="loaders">
+              <span className="loader"></span>
             </div>
-          </div>
-          <div className="singlePostInfo">
-            <div className="Author">
-              <div className="authorImg"> </div>
-              <div className="authorsInfo">
-                <Link to={`/get-post/${post.username}`}>
-                  <b>{post?.username} </b>
-                </Link>
-                <p>{post?.profession} </p>
-              </div>
-            </div>
-
-            <div
-              className="singlePostImg"
-              style={{ backgroundImage: `url(${post.photo})` }}
-            ></div>
-            {post.username === user?.username && (
-              <div className="iconFlex">
-                <span>
-                  {
-                    <AiOutlineEdit
-                      onClick={() => setUpdateMode(true)}
-                      style={{ fontSize: 30, cursor: "pointer" }}
-                    />
-                  }{" "}
-                </span>
-                <span onClick={handleDelete}>
-                  {<MdDelete style={{ fontSize: 30, cursor: "pointer" }} />}{" "}
-                </span>
-              </div>
-            )}
-            {updateMode ? (
-              <textarea
-                typeof="text"
-                value={desc}
-                className="updateSinglePostDescInput"
-                onChange={(e) => setDesc(e.target.value)}
-                style={{whiteSpace: "pre-wrap"}}
-              />
-            ) : (
-              <p className="singlePostDescription" >{desc} </p>
-            )}
-            {updateMode ? (
-              <button className="postUpdateBtn" onClick={handleUpdate}>
-                Update{" "}
-              </button>
-            ) : (
-              ""
-            )}
-          </div>
+          ) : (
+            <h1>Loading</h1>
+          )}
         </div>
-      </div>
+      ) : (
+        <>
+          <div className="singlePostContainer">
+            <Navbar />
+
+            <div className="singlePostContainer">
+              <div className="singlePostTags">
+                {tags}{" "}
+                <ul>
+                  <li> {new Date(post?.createdAt).toDateString()} </li>{" "}
+                </ul>
+              </div>
+              <div className="iconFlexContainer">
+                <div className="singlePostIconFlex">
+                  {updateMode ? (
+                    <input
+                      type="text"
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                      className="singlePostTitleInput"
+                      autoFocus
+                    />
+                  ) : (
+                    <h1>{title} </h1>
+                  )}
+                </div>
+              </div>
+              <div className="singlePostInfo">
+                <div className="Author">
+                  <div className="authorImg"> </div>
+                  <div className="authorsInfo">
+                    <Link to={`/get-post/${post.username}`}>
+                      <b>{post?.username} </b>
+                    </Link>
+                    <p>{post?.profession} </p>
+                  </div>
+                </div>
+
+                <div
+                  className="singlePostImg"
+                  style={{ backgroundImage: `url(${post.photo})` }}
+                ></div>
+                {post.username === user?.username && (
+                  <div className="iconFlex">
+                    <span>
+                      {
+                        <AiOutlineEdit
+                          onClick={() => setUpdateMode(true)}
+                          style={{ fontSize: 30, cursor: "pointer" }}
+                        />
+                      }{" "}
+                    </span>
+                    <span onClick={handleDelete}>
+                      {<MdDelete style={{ fontSize: 30, cursor: "pointer" }} />}{" "}
+                    </span>
+                  </div>
+                )}
+                {updateMode ? (
+                  <textarea
+                    typeof="text"
+                    value={desc}
+                    className="updateSinglePostDescInput"
+                    onChange={(e) => setDesc(e.target.value)}
+                    style={{ whiteSpace: "pre-wrap" }}
+                  />
+                ) : (
+                  <p className="singlePostDescription" >{desc} </p>
+                )}
+                {updateMode ? (
+                  <button className="postUpdateBtn" onClick={handleUpdate}>
+                    Update{" "}
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
+              </div>
+              <Leftlight/>
+          </div>
+        </>
+      )}
     </SinglePostStyled>
   );
 };

@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useContext } from "react";
 import { AiOutlineEdit } from "react-icons/ai";
 import { useParams } from "react-router-dom";
-import { AppContext, Context } from "../../../helper/Context";
+import { Context } from "../../../helper/Context";
 import { UserDetailsStyled } from "./Userdetail.styled";
 
 type Props = {};
@@ -57,13 +57,14 @@ const Userdetails = (props: any) => {
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
+  
 
   return (
     <UserDetailsStyled>
       <div className="userDetailsContainer">
         <div className="bgColor">
           {" "}
-          <div className="userImage"></div>
+          <div className="userImage" style={{backgroundImage: `url(${props.user?.profilePic})`}} ></div>
         </div>
         <div className="bioContainer">
           <h1>{props.user.username}</h1>
@@ -78,7 +79,7 @@ const Userdetails = (props: any) => {
                       className="bioInput"
                       onChange={(e) => setProfession(e.target.value)}
                     />
-                    <button type="submit" className="updateBioBtn">
+                    <button style={{cursor: "pointer"}} type="submit" className="updateBioBtn">
                       Update Bio
                     </button>
                   </div>
@@ -94,7 +95,6 @@ const Userdetails = (props: any) => {
                   </div>
                 )}
               </div>
-              <div></div>
             </div>
           </form>
           <form onSubmit={handleUpdateBio}>

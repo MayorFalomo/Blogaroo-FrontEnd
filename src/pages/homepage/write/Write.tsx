@@ -5,12 +5,18 @@ import { WriteStyled } from "./Write.styled";
 import { Context } from "../../../helper/Context";
 import axios from "axios";
 import Footer from "../../../components/footer/Footer";
+import Leftlight from "../../../components/leftlight/Leftlight";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 
 const Write = () => {
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
   const [tags, setTags] = useState<string>("");
   const [photo, setPhoto] = useState<string>("");
+  const [sucessfullUpload, setSucesfullUpload] = useState(false);
+
 
   const { user } = useContext(Context);
 
@@ -22,7 +28,7 @@ const Write = () => {
       .post("https://api.cloudinary.com/v1_1/dsghy4siv/image/upload", formData)
       .then((res) => setPhoto(res.data.url))
       .catch((err) => console.log(err));
-    // console.log(files, "This is files");
+          setSucesfullUpload(true)
   };
 
   const handelSubmit = async (e: any) => {
@@ -49,56 +55,65 @@ const Write = () => {
 
   return (
     <WriteStyled>
-      <div>
+      <div className="writeStyle" >
         <Navbar />
-        <div className="WriteContainer">
-          <form onSubmit={handelSubmit}>
-            <div className="writeFormGroup">
-              <label htmlFor="fileInput">
-                <AiOutlinePlus className="writeIcon" />{" "}
-              </label>
-              <input
-                type="file"
-                id="fileInput"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  uploadImage(e.target.files);
-                }}
-              />
-              <input
-                type="text"
-                placeholder="Title"
-                className="writeInput"
-                autoFocus={true}
-                required
-                onChange={(e) => setTitle(e.target.value)}
-              />
+            <div className="WriteContainer">
+              <form onSubmit={handelSubmit}>
+                <div className="writeFormGroup">
+                  <Tippy content='Upload Image'>
+                    <label htmlFor="fileInput">
+                      <AiOutlinePlus className="writeIcon" />{" "}
+                    </label>
+                  </Tippy>
+
+                  <input
+                    type="file"
+                    id="fileInput"
+                    style={{ display: "none" }}
+                    onChange={(e) => {
+                      uploadImage(e.target.files);
+                    }}
+                  />
+                  <input
+                    type="text"
+                    placeholder="Title"
+                    className="writeInput"
+                    autoFocus={true}
+                    required
+                    onChange={(e) => setTitle(e.target.value)}
+                  />
+                </div>
+                <div className="writeText">
+                  <textarea
+                    placeholder="Write Your Story..."
+                    typeof="text"
+                    className="textInput"
+                    required
+                    onChange={(e) => setDesc(e.target.value)}
+                  ></textarea><br />
+                  <input
+                    type="text"
+                    className="category"
+                    placeholder="Category e.g Fashion"
+                    onChange={(e) => setTags(e.target.value)}
+                  />
+                    { sucessfullUpload ? <button
+                      type="submit"
+                      className="writeSubmitBtn"
+                    >
+                      Publish{" "}
+                    </button> :  <button
+                      type="submit"
+                      disabled
+                      className="writeSubmitBtn"
+                    >
+                      Publish{" "}
+                    </button>}
+                </div>
+              </form>
             </div>
-            <div className="writeText">
-              <textarea
-                placeholder="Write Your Story..."
-                typeof="text"
-                className="textInput"
-                required
-                onChange={(e) => setDesc(e.target.value)}
-              ></textarea><br/>
-              <input
-                type="text"
-                className="category"
-                placeholder="Category e.g Fashion"
-                onChange={(e) => setTags(e.target.value)}
-              />
-              <button
-                type="submit"
-                // onClick={uploadImage}
-                className="writeSubmitBtn"
-              >
-                Publish{" "}
-              </button>
-            </div>
-          </form>
-        </div>
-        <Footer/>
+            <Leftlight />
+            <Footer />
       </div>
     </WriteStyled>
   );
