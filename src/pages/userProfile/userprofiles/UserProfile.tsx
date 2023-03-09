@@ -35,6 +35,8 @@ const UserProfile = (props: any) => {
     // });
   }, []);
 
+  
+
   useEffect(() => {
     axios
       .get(`/users/get-user/${pathname}`)
@@ -75,10 +77,9 @@ const UserProfile = (props: any) => {
                   <Profile userPost={userPost} />{" "}
                 </div>
               ))}
-              <div className="noPost">{userPosts.length === 0 && <h1  >THIS USER HAS NO POST</h1>}</div>
+              <div className="noPost">{userPosts.posts.length === 0 && <h1  >THIS USER HAS NO POST</h1>}</div>
             </div>
-            {/* </>
-        )} */}
+           
             <Leftlight />
             <Footer />
           </div>

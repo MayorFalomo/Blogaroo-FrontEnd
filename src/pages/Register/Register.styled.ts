@@ -6,8 +6,6 @@ export const RegisterStyled = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    /* border: 2px red solid; */
-    /* padding: 50px 50px; */
     width: 100%;
   }
   form input {
@@ -71,7 +69,7 @@ export const RegisterStyled = styled.div`
     border: none;
     outline: none;
     position: absolute;
-    right: 50px;
+    right: 20px;
     top: 50px;
     border-radius: 7px;
     font-size: 18px;

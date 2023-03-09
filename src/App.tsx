@@ -23,14 +23,13 @@ function App() {
   const { search } = useLocation();
 
    const [loaded, setLoaded] = useState(false);
-  const [completedPredload, setCompletedPreload] = useState(false);
+  const [completedPreload, setCompletedPreload] = useState(false);
   
   const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
   const [skip, setSkip] = useState(10)
   const [generalPosts, setGeneralPosts] = useState<any>()
-  // console.log(search);
 
   useEffect(() => {
     setTimeout(() => {
@@ -56,7 +55,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ posts, searchPost, setSearchPost, handleScroll, completed, loading }}>
-      {!completedPredload ? (
+      {!completedPreload ? (
         <div className="contain">
           {!loaded ? (
             <div className="loader">

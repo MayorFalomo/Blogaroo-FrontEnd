@@ -82,7 +82,7 @@ export const LoginStyled = styled.div`
     outline: none;
     border-radius: 7px;
     position: absolute;
-    right: 70px;
+    right: 30px;
     top: 30px;
     cursor: pointer;
     font-size: 20px;
