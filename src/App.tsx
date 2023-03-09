@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      setCompletedPreload(false);
+      setCompletedPreload(true);
     }, 6000);
   }, []);
 
