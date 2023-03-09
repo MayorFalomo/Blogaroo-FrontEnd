@@ -37,7 +37,7 @@ const Settings = (props: any) => {
       profilePic,
     };
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("https://blogaroo-backend.vercel.app/api/users/" + user._id, updatedUser);
       setSuccess(true);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
