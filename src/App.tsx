@@ -70,12 +70,12 @@ function App() {
           <div className="App">
             <GlobalStyle />
             <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/write" element={<Write />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/allusers" element={<Allusers />} />
+              <Route path="/" element={user ? <Homepage /> : <Register/>} />
+              <Route path="/write" element={user ? <Write /> : <Register/>  } />
+              <Route path="/register" element={user ? <Register /> : <Register/>} />
+              <Route path="/login" element={ user && <Login />} />
+              <Route path="/settings" element={user ? <Settings /> : <Register/> } />
+              <Route path="/allusers" element={user ? <Allusers /> : <Register/>} />
               <Route path="/comments/:postId" element={<Comments posts={posts} />} />
               <Route
                 path="/get-post/:username"
