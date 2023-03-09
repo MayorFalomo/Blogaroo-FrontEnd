@@ -27,7 +27,7 @@ const Comments = (props: any) => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + location.postId);
+      const res = await axios.get("https://blogaroo-backend.vercel.app/api/posts/" + location.postId);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -43,7 +43,7 @@ const Comments = (props: any) => {
       comments,
       postId: post._id
     }
-    await axios.put(`/posts/comments`, commentData).catch((err) => console.log(err))
+    await axios.put(`https://blogaroo-backend.vercel.app/api/posts/comments`, commentData).catch((err) => console.log(err))
     setComments([...comments, commentData])
     setCommentAdded(true)
 

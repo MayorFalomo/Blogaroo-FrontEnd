@@ -34,7 +34,7 @@ const SinglePost = (props: any) => {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get("/posts/" + location.postId);
+      const res = await axios.get("https://blogaroo-backend.vercel.app/api/posts/" + location.postId);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
@@ -46,7 +46,7 @@ const SinglePost = (props: any) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete("/posts/" + location.postId, {
+      await axios.delete("https://blogaroo-backend.vercel.app/api/posts/" + location.postId, {
         data: { username: user.username },
       });
       window.location.replace("/");
@@ -57,7 +57,7 @@ const SinglePost = (props: any) => {
 
   const handleUpdate = async () => {
     try {
-      axios.put(`/posts/${post._id}`, {
+      axios.put(`https://blogaroo-backend.vercel.app/api/posts/${post._id}`, {
         username: user.username,
         title,
         desc,

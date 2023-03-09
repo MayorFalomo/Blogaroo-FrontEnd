@@ -22,7 +22,7 @@ const UserProfile = (props: any) => {
   useEffect(() => {
     const fetchProfile = async () => {
       await axios
-        .get(`/posts/get-post/${pathname}`)
+        .get(`https://blogaroo-backend.vercel.app/api/posts/get-post/${pathname}`)
         .then((res) => setUserPosts(res.data)).catch((err) => console.log(err));  
       setCompleted(true)
     };
@@ -39,7 +39,7 @@ const UserProfile = (props: any) => {
 
   useEffect(() => {
     axios
-      .get(`/users/get-user/${pathname}`)
+      .get(`https://blogaroo-backend.vercel.app/api/users/get-user/${pathname}`)
       .then((res) => setUserInfo(res.data))
       .catch((err) => console.log(err));
   }, []);  

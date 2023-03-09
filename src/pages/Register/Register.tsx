@@ -18,7 +18,7 @@ const Register = (props: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     await axios
-      .post("/auth/register", {
+      .post("https://blogaroo-backend.vercel.app/api/auth/register", {
         username,
         email,
         profession,
@@ -27,7 +27,7 @@ const Register = (props: any) => {
       .then(async () => {
         dispatch({ type: "LOGIN_START" });
         try {
-          const res = await axios.post("/auth/login", {
+          const res = await axios.post("https://blogaroo-backend.vercel.app/api/auth/login", {
             username,
             password,
           });

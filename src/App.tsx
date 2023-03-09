@@ -39,7 +39,7 @@ function App() {
 
   useEffect(() => {
     const fetchPosts = async (params:any) => {
-      const res = await axios.get(`/posts/?page=1&limit=${params}` + search);
+      const res = await axios.get(`https://blogaroo-backend.vercel.app/api/posts` + search);
       setPosts(res.data);
       setCompleted(true)
     };

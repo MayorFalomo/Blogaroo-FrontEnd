@@ -16,7 +16,7 @@ const Login = (props: any) => {
     dispatch({ type: "LOGIN_START" });
 
     try {
-      const res = await axios.post("/auth/login", {
+      const res = await axios.post("https://blogaroo-backend.vercel.app/api/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });

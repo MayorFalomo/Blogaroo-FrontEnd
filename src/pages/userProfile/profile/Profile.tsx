@@ -25,8 +25,8 @@ const Profile = (props: any) => {
           <div className="userDetails">
             <div className="userDp"></div>
             <div className="flexNames">
-              <h3>{props.userPost.username} </h3>
-              <span>{props.userPost.profession} </span>
+              <h3>{props.userPost?.username} </h3>
+              <span>{props.userPost?.profession} </span>
             </div>
           </div>
         </div>

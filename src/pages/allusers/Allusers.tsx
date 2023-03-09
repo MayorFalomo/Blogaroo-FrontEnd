@@ -14,7 +14,7 @@ const Allusers = (props: any) => {
   const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
-    axios.get("/users").then((res) => setAllUsers(res.data)).then((err) => console.log(err))
+    axios.get("https://blogaroo-backend.vercel.app/api/users").then((res) => setAllUsers(res.data)).then((err) => console.log(err))
     setCompleted(true)
   },[])  
   

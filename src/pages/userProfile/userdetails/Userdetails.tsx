@@ -25,7 +25,7 @@ const Userdetails = (props: any) => {
       profession,
     };
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("https://blogaroo-backend.vercel.app/api/users/" + user._id, updatedUser);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
       setUpdateMode(false);
       setSuccess(true);
@@ -45,7 +45,7 @@ const Userdetails = (props: any) => {
       bio,
     };
     try {
-      const res = await axios.put("/users/" + user._id, updatedUser);
+      const res = await axios.put("https://blogaroo-backend.vercel.app/api/users/" + user._id, updatedUser);
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
       setUpdateBioMode(false);
       setSuccess(true);
