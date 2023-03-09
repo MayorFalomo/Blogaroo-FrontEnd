@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      setCompletedPreload(true);
+      setCompletedPreload(false);
     }, 6000);
   }, []);
 
@@ -73,7 +73,7 @@ function App() {
               <Route path="/" element={user ? <Homepage /> : <Register/>} />
               <Route path="/write" element={user ? <Write /> : <Register/>  } />
               <Route path="/register" element={user ? <Register /> : <Register/>} />
-              <Route path="/login" element={ user && <Login />} />
+              <Route path="/login" element={ <Login />} />
               <Route path="/settings" element={user ? <Settings /> : <Register/> } />
               <Route path="/allusers" element={user ? <Allusers /> : <Register/>} />
               <Route path="/comments/:postId" element={<Comments posts={posts} />} />

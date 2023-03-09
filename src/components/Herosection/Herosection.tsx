@@ -26,7 +26,7 @@ const Herosection = (props: any) => {
       ) : (
         <>
           <div className="heroPostContainer" style={{ display: "flex", flexDirection: "column" }}>
-            <Carousel wrapAround={true} slidesToShow={1} autoplay={true} autoplayInterval={6000} withoutControls={true}>
+            <Carousel wrapAround={true} slidesToShow={1} autoplay={true} autoplayInterval={6000} swiping={false} withoutControls={true}>
               {heroPost.map((heroPost: any) => (
                 <div className="subHeroPost" key={heroPost._id}>
                   <HeroPost heroPost={heroPost} />

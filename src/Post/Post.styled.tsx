@@ -91,4 +91,12 @@ export const PostStyled = styled.div`
     font-size: 16px;
     margin: 15px 5px;
   }
+
+  @media (max-width:400px) {
+    .catAndDate{
+      font-size: 16px;
+      display: flex;
+      gap: 20px;
+    }
+  }
 `;
