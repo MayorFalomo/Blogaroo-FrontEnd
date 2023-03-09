@@ -46,7 +46,7 @@ const Write = () => {
 
     try {
       const res = await axios.post("https://blogaroo-backend.vercel.app/api/posts", newPost);
-      window.location.replace("/post/" + res.data._id);
+      window.location.replace("https://blogaroo-backend.vercel.app/api/post/" + res.data._id);
     } catch (err) {
       console.log(err);
     }
