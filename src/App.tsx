@@ -72,7 +72,6 @@ function App() {
             <Routes>
               <Route path="/" element={user ? <Homepage /> : <Register/>} />
               <Route path="/write" element={user ? <Write /> : <Register/>  } />
-              <Route path="/register" element={user ? <Register /> : <Register/>} />
               <Route path="/login" element={ <Login />} />
               <Route path="/settings" element={user ? <Settings /> : <Register/> } />
               <Route path="/allusers" element={user ? <Allusers /> : <Register/>} />
