@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Navbar from '../../components/Navbar/Navbar'
 import { Context } from '../../helper/Context'
 import CommentPage from './CommentPage'

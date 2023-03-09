@@ -1,14 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { SinglePostStyled } from "./SinglePost.styled";
 import { AiOutlineEdit } from "react-icons/ai";
-import desert from "./desert.jpg";
 import { Context } from "../../helper/Context";
-import Preload from "../preload/Preload";
 import Leftlight from "../leftlight/Leftlight";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";

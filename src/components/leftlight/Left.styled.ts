@@ -5,7 +5,6 @@ export const Lightstyled = styled.div`
       position: fixed;
       top: 0px;
       left: 0;
-      /* border: 2px red solid; */
       z-index: -5;
     }
 `

@@ -1,6 +1,6 @@
 import React from "react";
 import { PostStyled } from "./Post.styled";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import { IoHeartSharp } from "react-icons/io5";
 import { FaRegComment } from "react-icons/fa";
@@ -13,9 +13,6 @@ type Props = {};
 
 const Post = (props: any) => {
   const { user } = useContext(Context);
-
-  const navigate = useNavigate()
-  const location = useLocation()
 
   const details = JSON.parse(localStorage.getItem("BlogarooUser") || "{}");
   const [changeColor, setChangeColor] = useState<any>(false);
@@ -32,10 +29,8 @@ const Post = (props: any) => {
       .catch((err) => console.log(err));
     //SetLikeArray to the previous array then add the new object to the previous array
     setLikesArray([...likesArray, likeData]);
-    // console.log(likeData);
   };
 
-  // console.log(props.post.likes, "This is Liked Array");
   
 
   

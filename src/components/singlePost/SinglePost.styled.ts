@@ -25,7 +25,6 @@ export const SinglePostStyled = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-    /* border: 2px red solid; */
   }
   .iconFlex {
     display: flex;
@@ -89,7 +88,6 @@ export const SinglePostStyled = styled.div`
       cursor: pointer;
     }
     .Author {
-      /* border: 2px red solid; */
       display: flex;
       align-items: center;
       gap: 10px;

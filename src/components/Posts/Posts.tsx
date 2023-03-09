@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AppContext } from "../../helper/Context";
 import Post from "../../Post/Post";
 import Leftlight from "../leftlight/Leftlight";
@@ -9,8 +9,6 @@ type Props = {};
 const Posts = (props: any) => {
   const { searchPost, handleScroll, completed, loading } = useContext(AppContext);
 
-  // const [loading, setLoading] = useState(false);
-  // const [completed, setCompleted] = useState(false);
 
   
   return (

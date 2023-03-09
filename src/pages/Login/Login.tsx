@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar/Navbar";
 import { Context } from "../../helper/Context";
 import { LoginStyled } from "./Login.styles";
 

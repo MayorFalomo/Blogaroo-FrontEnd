@@ -6,13 +6,10 @@ export const LoginStyled = styled.div`
     justify-content: center;
     height: 100vh;
     position: relative;
-    /* border: 3px red solid; */
   }
   .loginContainer form {
-    /* border: 2px red solid; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
   }
   .subContainer {
@@ -22,7 +19,6 @@ export const LoginStyled = styled.div`
     justify-content: center;
   }
   .shadowCon {
-    /* border: 3px red solid; */
     border-radius: 10px;
     background-color: white;
     color: black;
@@ -31,7 +27,6 @@ export const LoginStyled = styled.div`
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
   }
   .subContainer form {
-    /* border: 2px red solid; */
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;

@@ -4,10 +4,6 @@ import { HiUserGroup } from "react-icons/hi";
 import { SettingsStyle } from "./Settings.styled";
 import { Context } from "../../helper/Context";
 import axios from "axios";
-import Link from "react-router";
-import Footer from "../../components/footer/Footer";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
 
 type Props = {};
 

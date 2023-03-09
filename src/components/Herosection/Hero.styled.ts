@@ -151,12 +151,10 @@ export const StyledHero = styled.div`
       }
   @media (max-width: 950px) {
     .heroContainer{
-      /* border: 2px yellow solid; */
       display: flex;
       flex-direction: column;
     }
     .heroCard{
-      /* border: 2px red solid; */
       text-align: center;
       width: 90%;
     }
