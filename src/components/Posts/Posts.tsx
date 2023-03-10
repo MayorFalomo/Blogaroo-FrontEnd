@@ -1,15 +1,21 @@
-import { useContext} from "react";
+import { useContext, useEffect} from "react";
 import { AppContext } from "../../helper/Context";
 import Post from "../../Post/Post";
 import Leftlight from "../leftlight/Leftlight";
 import { PostsStyled } from "./Posts.styled";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 type Props = {};
 
 const Posts = (props: any) => {
   const { searchPost, handleScroll, completed, loading } = useContext(AppContext);
 
-
+useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   
   return (
     <PostsStyled>
@@ -40,7 +46,7 @@ const Posts = (props: any) => {
               })
               .reverse()
               .map((post: any, index: any) => (
-                <div className="postsMap" key={index}>
+                <div className="postsMap" key={index}  data-aos="fade-up">
                   <Post post={post} />
                 </div>
               ))}

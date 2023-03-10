@@ -61,7 +61,7 @@ const Register = (props: any) => {
               <label>Email </label>
               <input
                 type="email"
-                placeholder="Enter Your Username"
+                placeholder="Enter Your Email"
                 className="registerName"
                 required
                 onChange={(e) => setEmail(e.target.value)}

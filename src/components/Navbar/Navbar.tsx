@@ -55,14 +55,18 @@ const Navbar = (props: any) => {
             >
               <li>Write </li>
             </NavLink>
-            <NavLink to={`/allusers`} ><li>All Users </li></NavLink>
+            <NavLink to={`/allusers`} style={({ isActive }) => ({
+                color: isActive ? "black" : "white",
+              })}><li>All Users </li></NavLink>
             <NavLink to={`/get-post/${user.username}`}
               style={({ isActive }) => ({
                 color: isActive ? "black" : "white",
               })}><li>About </li></NavLink>
-            <Link to="/login">
+            <NavLink to="/login" style={({ isActive }) => ({
+                color: isActive ? "black" : "white",
+              })}>
               <li onClick={handleLogOut}>Log Out </li>
-            </Link>
+            </NavLink>
           </ul>
           <form onSubmit={handleSubmit} className={hamburger ? "hamburger-form" : ""} >
             <div className="input">
