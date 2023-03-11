@@ -59,6 +59,7 @@ export const StyledHero = styled.div`
     }
     h1{
       color: white;
+      line-height: 40px;
     }
     h1:hover{
       text-decoration: underline;

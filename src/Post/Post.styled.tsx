@@ -12,6 +12,7 @@ export const PostStyled = styled.div`
     font-size: 32px;
     text-align: left;
     color: white;
+    line-height: 40px;
     font-family: 'Josefin sans';
   }
   .postTitle:hover{

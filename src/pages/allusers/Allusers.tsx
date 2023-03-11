@@ -4,6 +4,9 @@ import Leftlight from '../../components/leftlight/Leftlight'
 import Navbar from '../../components/Navbar/Navbar'
 import { AllUsersStyled } from './Allusers.styled'
 import Users from './Users'
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 type Props = {}
 
@@ -18,6 +21,10 @@ const Allusers = (props: any) => {
     setCompleted(true)
   },[])  
   
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
 
   return (
     <AllUsersStyled>
@@ -36,7 +43,7 @@ const Allusers = (props: any) => {
           <div className='allUsersContainer' >
             <Navbar />
          
-            <div className="allUsersMap" >
+            <div className="allUsersMap" data-aos="fade-up" >
               {allUsers.map((user: any) => (
                 <div key={user._id} className='subMapContainer' >
                   <Users user={user} />
