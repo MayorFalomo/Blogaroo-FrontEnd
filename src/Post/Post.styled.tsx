@@ -11,7 +11,11 @@ export const PostStyled = styled.div`
   .postTitle {
     font-size: 32px;
     text-align: left;
-    /* color: yellow; */
+    color: white;
+    font-family: 'Josefin sans';
+  }
+  .postTitle:hover{
+    text-decoration: underline;
   }
   .subContainer ul {
     display: flex;
@@ -26,6 +30,7 @@ export const PostStyled = styled.div`
     width: 100%;
     color: rgb(85, 92, 110);
     font-size: 23px;
+    font-family: 'Inter';
   }
   .image {
     max-width: 400px;
@@ -62,6 +67,10 @@ export const PostStyled = styled.div`
     }
     span {
       font-size: 20px;
+      color: rgb(85, 92, 110);
+    }
+    h3{
+      color: #fff;
     }
   }
   .catAndDate {
@@ -89,8 +98,10 @@ export const PostStyled = styled.div`
     cursor: pointer;
   }
   .likesText{
-    font-size: 16px;
+    font-size: 18px;
     margin: 15px 5px;
+        color: rgb(85, 92, 110);
+
   }
 
   @media (max-width:400px) {

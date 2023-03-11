@@ -40,6 +40,9 @@ export const StyledHero = styled.div`
       align-items: flex-start;
       gap: 5px;
     }
+    p{
+          color: rgb(85, 92, 110);
+    }
   }
   .heroContainer {
     display: flex;
@@ -50,6 +53,16 @@ export const StyledHero = styled.div`
   }
   .heroCard {
     width: 40%;
+    ul{
+          color: rgb(85, 92, 110);
+          font-size: 18px;
+    }
+    h1{
+      color: white;
+    }
+    h1:hover{
+      text-decoration: underline;
+    }
   }
   .heroCard .heroText {
     font-size: 20px;
@@ -57,6 +70,7 @@ export const StyledHero = styled.div`
     margin: 10px auto;
     color: rgb(85, 92, 110);
     font-weight: 700;
+    font-family: 'inter';
   }
   .heroCard ul {
     display: flex;
@@ -70,6 +84,7 @@ export const StyledHero = styled.div`
   }
   .heroUsername {
     font-size: 23px;
+    color: white;
   }
    .loaders{
     display: flex;
