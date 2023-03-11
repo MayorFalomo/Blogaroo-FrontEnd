@@ -2,16 +2,13 @@ import styled from "styled-components";
 
 export const CommentStyled = styled.div`
 .Comment{
-    /* border: 3px green solid; */
-    /* height: 100vh; */
     position: relative;
 }
 .seeCommentsMap{
-
   .mapContainer{
     border-radius: 5px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin: auto;
     width: 40%;
     padding: 20px 20px;
@@ -20,7 +17,9 @@ export const CommentStyled = styled.div`
   .commentsPageContainer{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
+    width: 100%;
+
   }
   .comments{
         border: 3px rgba(255, 255, 255, 0.12) solid;
@@ -32,7 +31,7 @@ export const CommentStyled = styled.div`
 .commentsContainer{
     margin: 150px auto;
    .singlePostContainer {
-    margin: 170px auto;
+    margin: 50px auto;
     .singlePostTags {
       display: flex;
       align-items: center;
@@ -48,7 +47,7 @@ export const CommentStyled = styled.div`
   }
   .singlePostImg {
     width: 95%;
-    height: 60vh;
+    height: 70vh;
     background-color: black;
     background-position: center;
     background-repeat: no-repeat;
@@ -125,7 +124,6 @@ export const CommentStyled = styled.div`
       cursor: pointer;
     }
     .Author {
-      /* border: 2px red solid; */
       display: flex;
       align-items: center;
       gap: 10px;
@@ -158,15 +156,12 @@ export const CommentStyled = styled.div`
     margin-top: 5px;
   }
   .comment{
-    /* border: 2px red solid; */
     margin: 30px auto;
     display: flex;
     justify-content: center;
-    /* position: absolute;
-    bottom: 0; */
+  
   }
   .commentInput{
-    /* padding: 30px ; */
     height: 100px;
     width: 600px;
     background-color: #121b2a;
@@ -177,7 +172,8 @@ export const CommentStyled = styled.div`
   }
   .commentInput::placeholder{
     color: white;
-    font-size: 24px;
+    font-size: 21px;
+    padding: 10px;
   }
   .submitComment{
     padding: 10px 20px;
@@ -200,5 +196,27 @@ export const CommentStyled = styled.div`
     display: flex;
     justify-content: center;
   }
+  }
+
+  @media (max-width: 1200px) {
+    .seeCommentsMap{
+    .mapContainer{
+      width: 80%;
+    }
+  }
+}
+  @media (max-width: 550px) {
+    .seeCommentsMap{
+    .mapContainer{
+      width: 100%;
+    }
+  }
+}
+
+  @media (max-width: 400px) {
+    .comments{
+      font-size: 18px;
+      line-height: 30px;
+    }
   }
 `

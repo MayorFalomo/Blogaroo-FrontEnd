@@ -8,8 +8,10 @@ export const UserStyled = styled.div`
       display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
-    width: 100%;
-    margin: 20px 5px;
+    width: 95%;
+    margin: 100px auto;
+      /* border: 2px red solid; */
+
     .noPost{
       margin: 30px 0;
       display: flex;

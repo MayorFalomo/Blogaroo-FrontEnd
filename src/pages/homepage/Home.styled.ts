@@ -1,24 +1,11 @@
 import styled from "styled-components";
 
-export const PostsStyled = styled.div`
-  .Posts {
-     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 2rem;
-    margin:0 auto;
-    position: relative;
-    width: 95%;
-    .postLight {
-      position: fixed;
-      top: 50px;
-      left: 0;
-      z-index: -5;
-    }
-  }
-    .loaders{
+export const HomeStyled = styled.div`
+.loaders{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
     .loader {
         transform: rotateZ(45deg);
@@ -92,14 +79,4 @@ export const PostsStyled = styled.div`
           box-shadow: .2em -.2em 0 0 currentcolor;
         }
       }
-    
-   @media (max-width: 460px) {
-      .Posts{
-       width: 100%;
-       margin: auto auto;
-      }
-      .postsMap{
-        width: 100%;
-      }
-    }
-`;
+`

@@ -9,8 +9,9 @@ export const PostStyled = styled.div`
     width: 400px;
   }
   .postTitle {
-    font-size: 30px;
-    text-align: center;
+    font-size: 32px;
+    text-align: left;
+    /* color: yellow; */
   }
   .subContainer ul {
     display: flex;

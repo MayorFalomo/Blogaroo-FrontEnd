@@ -17,6 +17,7 @@ export const RegisterStyled = styled.div`
     background-color: #2d3746;
     color: #fff;
     font-size: 16px;
+    width: 100%;
   }
   form input::placeholder {
     color: #fff;
@@ -40,6 +41,7 @@ export const RegisterStyled = styled.div`
     border-radius: 10px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+      max-width: 500px;
   }
   .registerBtn {
     display: flex;
@@ -52,7 +54,8 @@ export const RegisterStyled = styled.div`
     font-size: 18px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
-    width: 100%;
+    /* width: 100%; */
+    width: 200px;
     cursor: pointer;
   }
   .registerBtn:hover {
@@ -75,5 +78,15 @@ export const RegisterStyled = styled.div`
     font-size: 18px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  }
+  .errorMessage{
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+  }
+  .note{
+    margin-top: 10px;
+    color: green;
+
   }
 `;

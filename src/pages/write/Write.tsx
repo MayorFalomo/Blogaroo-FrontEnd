@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
-import Navbar from "../../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import { AiOutlinePlus } from "react-icons/ai";
 import { WriteStyled } from "./Write.styled";
-import { Context } from "../../../helper/Context";
+import { Context } from "../../helper/Context";
 import axios from "axios";
-import Footer from "../../../components/footer/Footer";
-import Leftlight from "../../../components/leftlight/Leftlight";
+import Footer from "../../components/footer/Footer";
+import Leftlight from "../../components/leftlight/Leftlight";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 

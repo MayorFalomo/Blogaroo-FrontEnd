@@ -5,7 +5,7 @@ import GlobalStyle from "./GlobalStyles";
 import Homepage from "./pages/homepage/Homepage";
 import axios from "axios";
 import { Routes, Route, useLocation } from "react-router-dom";
-import Write from "./pages/homepage/write/Write";
+import Write from "./pages/write/Write";
 import SinglePost from "./components/singlePost/SinglePost";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";

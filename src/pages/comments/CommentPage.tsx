@@ -4,7 +4,6 @@ import { CommentStyled } from './Comments.styled';
 type Props = {}
 
 const CommentPage = (props: any) => {
- console.log(props.comment);
  
     
   return (

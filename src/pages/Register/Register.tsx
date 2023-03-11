@@ -11,7 +11,7 @@ const Register = (props: any) => {
   const [email, setEmail] = useState<string>("");
   const [profession, setProfession] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
   const { dispatch } = useContext(Context);
 
 
@@ -32,15 +32,19 @@ const Register = (props: any) => {
             password,
           });
           localStorage.setItem("BlogarooUser", JSON.stringify(res.data));
-          console.log(res.data);
-
+          // console.log(res.data);
           dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
           res.data && window.location.replace("/");
         } catch (err) {
           dispatch({ type: "LOGIN_FAILURE" });
+         
         }
       })
       .catch((err) => console.log(err));
+     setErrorMessage(true)
+          setTimeout(() => {
+            setErrorMessage(false)
+          }, 6000)
   };
 
   return (
@@ -85,6 +89,8 @@ const Register = (props: any) => {
               <button className="registerBtn" type="submit">
                 Register{" "}
               </button>
+              <p  className="errorMessage">{errorMessage ? "Failed to Register, please try again" : ""} </p>
+              <p className="note" >{errorMessage ? "N.B: Usernames are unique so maybe that username is taken." : "" }</p>
               <Link to="/login">
                 <button className="loginBtn">Login </button>{" "}
               </Link>

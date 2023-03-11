@@ -82,4 +82,8 @@ export const LoginStyled = styled.div`
     cursor: pointer;
     font-size: 20px;
   }
+  p{
+    margin-top: 20px;
+    color: red;
+  }
 `;

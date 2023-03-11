@@ -19,7 +19,7 @@ export const SinglePostStyled = styled.div`
   }
   .singlePostImg {
     width: 95%;
-    height: 60vh;
+    height: 70vh;
     background-color: black;
     background-position: center;
     background-repeat: no-repeat;

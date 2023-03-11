@@ -35,7 +35,7 @@ export const WriteStyled = styled.div`
     border-radius: 10px;
     color: #fff;
     font-size: 25px;
-    border: 2px green solid;
+    /* border: 2px green solid; */
   }
   .writeInput::placeholder {
     font-size: 25px;

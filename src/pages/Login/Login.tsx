@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../helper/Context";
 import { LoginStyled } from "./Login.styles";
@@ -10,6 +10,7 @@ const Login = (props: any) => {
   const userRef = useRef<any>();
   const passwordRef = useRef<any>();
   const { dispatch, isFetching } = useContext(Context);
+  const [errorMessage, setErrorMessage] = useState<boolean>(false)
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -19,16 +20,20 @@ const Login = (props: any) => {
       const res = await axios.post("https://blogaroo-backend.vercel.app/api/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
-      });
+      })
       localStorage.setItem("BlogarooUser", JSON.stringify(res.data));
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
       res.data && window.location.replace("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
+      setErrorMessage(true);
+      setTimeout(() => {
+        setErrorMessage(false);
+      }, 6000)
     }
   };
 
-  console.log(userRef);
+  // console.log(userRef);
 
   return (
     <LoginStyled>
@@ -56,6 +61,7 @@ const Login = (props: any) => {
               <button className="loginBtn" disabled={isFetching}>
                 Login{" "}
               </button>
+              <p>{errorMessage ? "Check username and password again!"  : ""} </p>
               <Link to="/register">
                 <button className="loginRegisterBtn">Register </button>{" "}
               </Link>

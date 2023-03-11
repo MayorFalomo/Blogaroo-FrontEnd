@@ -21,10 +21,12 @@ export const UserDetailsStyled = styled.div`
       border-radius: 50%;
       position: absolute;
       bottom: -70px;
-      left: 20px;
+      left: 30px;
     }
     .bioContainer {
-      margin: 100px 10px;
+      margin: 100px auto;
+      /* border: 2px red solid; */
+      width:95%;
       h1 {
         font-size: 40px;
         margin: 10px auto;
