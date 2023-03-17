@@ -24,7 +24,7 @@ const Post = (props: any) => {
       photo: user.photo,
       postId: props.post._id,
     };
-    await axios.put(`api/posts/likepost`, likeData).catch((err) => console.log(err));
+    await axios.put(`https://blogaroo-backend.vercel.app/api/posts/likepost`, likeData).catch((err) => console.log(err));
     //SetLikeArray to the previous array then add the new object to the previous array
     setLikesArray([...likesArray, likeData]);
   };
@@ -37,7 +37,7 @@ const Post = (props: any) => {
       postId: props.post._id,
     };
     await axios
-      .put("api/posts/unlike-post", likeData)
+      .put("https://blogaroo-backend.vercel.app/api/posts/unlike-post", likeData)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
 
