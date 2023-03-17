@@ -34,7 +34,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setCompletedPreload(true);
-    }, 6000);
+    }, 4000);
   }, []);
 
   useEffect(() => {
@@ -52,6 +52,7 @@ function App() {
       setSkip(generalPosts?.length + 5);
     }
   }
+  
 
   return (
     <AppContext.Provider value={{ posts, searchPost, setSearchPost, handleScroll, completed, loading }}>

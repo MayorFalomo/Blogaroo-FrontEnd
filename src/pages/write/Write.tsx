@@ -42,15 +42,21 @@ const Write = () => {
       desc,
       tags,
       photo,
+      profileDp: user.profilePic || "",
     };
 
     try {
       const res = await axios.post("https://blogaroo-backend.vercel.app/api/posts", newPost);
       window.location.replace("/post/" + res.data._id);
+      console.log(newPost);
+      
     } catch (err) {
       console.log(err);
     }
   };
+
+  console.log(user.profilePic);
+  
 
 
   return (

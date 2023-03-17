@@ -101,7 +101,7 @@ export const SinglePostStyled = styled.div`
   }
   .singlePostInfo .authorImg {
     background-color: black;
-    background-image: url("../desert.jpg");
+    /* background-image: url("../desert.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

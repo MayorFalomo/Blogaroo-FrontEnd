@@ -19,6 +19,7 @@ const SinglePost = (props: any) => {
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");
   const [tags, setTags] = useState<string>("");
+  const [postProfilePic, setPostProfilePic] = useState<string>("");
   const [updateMode, setUpdateMode] = useState<boolean>(false);
    const [loading, setLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
@@ -39,10 +40,14 @@ const SinglePost = (props: any) => {
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setTags(res.data.tags);
+      setPostProfilePic(res.data.profileDp)
       setCompleted(true)
     };
     getPost();
   }, [location.postId]);
+
+  console.log(post);
+  
 
   const handleDelete = async () => {
     try {
@@ -110,7 +115,7 @@ const SinglePost = (props: any) => {
               </div>
               <div className="singlePostInfo">
                 <div className="Author">
-                  <div className="authorImg"> </div>
+                  <div className="authorImg" style={{backgroundImage: `url(${post.profileDp})`}}> </div>
                   <div className="authorsInfo">
                     <Link to={`/get-post/${post.username}`}>
                       <b>{post?.username} </b>
@@ -127,11 +132,10 @@ const SinglePost = (props: any) => {
                   <div className="iconFlex">
                     <span>
                         {
-                          <Tippy content='Upload Image'>
                         <AiOutlineEdit
                           onClick={() => setUpdateMode(true)}
                           style={{ fontSize: 30, cursor: "pointer" }}
-                        /></Tippy>
+                        />
                       }{" "}
                     </span>
                     <span onClick={handleDelete}>
