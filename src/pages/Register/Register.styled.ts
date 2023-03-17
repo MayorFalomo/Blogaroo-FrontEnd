@@ -87,6 +87,14 @@ export const RegisterStyled = styled.div`
   .note{
     margin-top: 10px;
     color: green;
-
+  }
+   .hidePassword{
+    position: relative;
+    .hideIcon{
+      position: absolute;
+      right: 5px;
+      top: 28px;
+      color: white;
+    }
   }
 `;

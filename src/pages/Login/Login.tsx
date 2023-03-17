@@ -3,7 +3,8 @@ import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../helper/Context";
 import { LoginStyled } from "./Login.styles";
-
+import {BiHide} from 'react-icons/bi'
+import { IoEyeOutline } from "react-icons/io5";
 type Props = {};
 
 const Login = (props: any) => {
@@ -11,6 +12,8 @@ const Login = (props: any) => {
   const passwordRef = useRef<any>();
   const { dispatch, isFetching } = useContext(Context);
   const [errorMessage, setErrorMessage] = useState<boolean>(false)
+  const [hidePassword, setHidePassword] = useState<boolean>(false)
+
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -33,8 +36,6 @@ const Login = (props: any) => {
     }
   };
 
-  // console.log(userRef);
-
   return (
     <LoginStyled>
       <div className="loginContainer">
@@ -51,13 +52,22 @@ const Login = (props: any) => {
                 required
               />
               <label>Password </label>
-              <input
-                type="text"
-                ref={passwordRef}
-                className="loginInput"
-                placeholder="Enter Your Password"
-                required
-              />
+              <div className="hidePassword" >
+                {hidePassword ? <input
+                  type="password"
+                  ref={passwordRef}
+                  className="loginInput"
+                  placeholder="Enter Your Password"
+                  required
+                /> :<input
+                  type="text"
+                  ref={passwordRef}
+                  className="loginInput"
+                  placeholder="Enter Your Password"
+                  required
+                />}
+                {hidePassword ?<p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' />} </p>}
+                </div>
               <button className="loginBtn" disabled={isFetching}>
                 Login{" "}
               </button>

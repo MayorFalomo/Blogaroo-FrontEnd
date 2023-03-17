@@ -44,6 +44,7 @@ const Comments = (props: any) => {
       postId: post._id
     }
     await axios.put(`https://blogaroo-backend.vercel.app/api/posts/comments`, commentData).catch((err) => console.log(err))
+    setComments("")
     setPost({
       ...post, 
       comments: [
@@ -56,8 +57,6 @@ const Comments = (props: any) => {
       setCommentAdded(false)
     }, 6000)
   }
-
-  console.log(post, "post");
   
     
 
@@ -106,7 +105,7 @@ const Comments = (props: any) => {
           ))}
             </div>
           <div className='comment' >
-              <textarea typeof='text' onChange={(e:any) => setComments(e.target.value)} className='commentInput' placeholder='Add a comment' />
+              <textarea typeof='text' onChange={(e:any) => setComments(e.target.value)} value={comments} className='commentInput' placeholder='Add a comment' />
               </div>
           <button onClick={handleComment} className='submitComment' disabled={commentAdded} type='submit' >Comment </button>
           {commentAdded ? <p className='commentSuccess' >"Your comment has been added"</p> : ""}

@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState, useContext } from "react";
+import { BiHide } from "react-icons/bi";
+import { IoEyeOutline } from "react-icons/io5";
 import { Link, } from "react-router-dom";
 import { Context } from "../../helper/Context";
 import { RegisterStyled } from "./Register.styled";
@@ -12,6 +14,8 @@ const Register = (props: any) => {
   const [profession, setProfession] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState(false);
+  const [hidePassword, setHidePassword] = useState<boolean>(false)
+
   const { dispatch } = useContext(Context);
 
 
@@ -79,13 +83,23 @@ const Register = (props: any) => {
                 onChange={(e) => setProfession(e.target.value)}
               ></input>
               <label>Password </label>
+              <div className="hidePassword" >
+              { hidePassword ? <input
+                type="password"
+                placeholder="Enter Your Password"
+                className="registerPassword"
+                required
+                onChange={(e) => setPassword(e.target.value)}
+                ></input> :
               <input
                 type="text"
                 placeholder="Enter Your Password"
                 className="registerPassword"
                 required
                 onChange={(e) => setPassword(e.target.value)}
-              ></input>
+                  ></input>}
+                {hidePassword ?<p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' cursor='pointer' />} </p>}
+                </div>
               <button className="registerBtn" type="submit">
                 Register{" "}
               </button>

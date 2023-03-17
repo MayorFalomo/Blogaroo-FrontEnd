@@ -86,4 +86,14 @@ export const LoginStyled = styled.div`
     margin-top: 20px;
     color: red;
   }
+  .hidePassword{
+    /* border: 2px red solid; */
+    position: relative;
+    .hideIcon{
+      position: absolute;
+      right: 5px;
+      top: 10px;
+      color: #fff;
+    }
+  }
 `;
