@@ -44,13 +44,21 @@ const Comments = (props: any) => {
       postId: post._id
     }
     await axios.put(`https://blogaroo-backend.vercel.app/api/posts/comments`, commentData).catch((err) => console.log(err))
-    setComments([...comments, commentData])
+    setPost({
+      ...post, 
+      comments: [
+        ...post?.comments, commentData
+      ]
+    })
     setCommentAdded(true)
 
     setTimeout(() => {
       setCommentAdded(false)
     }, 6000)
   }
+
+  console.log(post, "post");
+  
     
 
     
