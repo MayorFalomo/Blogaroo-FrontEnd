@@ -45,8 +45,6 @@ const SinglePost = (props: any) => {
     };
     getPost();
   }, [location.postId]);
-
-  console.log(post);
   
 
   const handleDelete = async () => {

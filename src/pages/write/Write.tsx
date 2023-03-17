@@ -53,10 +53,7 @@ const Write = () => {
     } catch (err) {
       console.log(err);
     }
-  };
-
-  console.log(user.profilePic);
-  
+  };  
 
 
   return (
