@@ -34,7 +34,7 @@ export const ProfileStyled = styled.div`
       border-radius: 20px;
     }
     .userDp {
-      background-color: blue;
+      background-color: black;
       background-image: url("../desert.jpg");
       background-repeat: no-repeat;
       background-size: cover;
