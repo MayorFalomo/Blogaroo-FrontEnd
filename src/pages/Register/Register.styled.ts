@@ -7,6 +7,20 @@ export const RegisterStyled = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
+    .labelCon{
+      position: relative;
+       .generateBtn{
+                position: absolute;
+                right: -50px;
+                top: 20px;
+                z-index: 1;
+                padding: 7px 10px;
+                background-color: #000;
+                color: #fff;
+                border-radius: 7px;
+                cursor: pointer;
+            }
+    }
   }
   form input {
     padding: 10px 25px;

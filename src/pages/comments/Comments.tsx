@@ -25,6 +25,9 @@ const Comments = (props: any) => {
   //OR USE THIS, WE CALL postId straightUp
   // const { postId } = useParams();
 
+  // console.log(post.comments, "This is post.comments");
+  
+//UseEffect to get the post we're commenting on
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("https://blogaroo-backend.vercel.app/api/posts/" + location.postId);
@@ -36,6 +39,7 @@ const Comments = (props: any) => {
     getPost();
   }, [location.postId]);
 
+  //Function to handle post commenting, 
   const handleComment = async () => {
     const commentData = {
       username: user.username,
@@ -45,6 +49,8 @@ const Comments = (props: any) => {
     }
     await axios.put(`https://blogaroo-backend.vercel.app/api/posts/comments`, commentData).catch((err) => console.log(err))
     setComments("")
+    //SetPost to the previous post and inside that previous post object enter the comment array
+    //take the post.comments and enter the commentdata you sent
     setPost({
       ...post, 
       comments: [

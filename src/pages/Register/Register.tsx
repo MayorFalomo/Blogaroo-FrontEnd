@@ -51,6 +51,41 @@ const Register = (props: any) => {
           }, 6000)
   };
 
+  const getRandomEmail = () => {
+    if (username.length > 0) {
+      setEmail(username + "@fake.com")
+    } else {
+      axios.get("https://random-word-api.herokuapp.com/word")
+        .then((res) => setEmail(res.data[0] + "@fake.com"))
+        .catch((err) => console.log(err))
+    }
+  }
+
+  const getRandomName = () => {
+    if (email.includes("@fake.com")) {
+      setUsername(email.split("@")[0])
+    } else {
+      axios.get("https://random-word-api.herokuapp.com/word")
+        .then((res) => setUsername(res.data[0]))
+        .catch((err) => console.log(err))
+    }
+  }
+
+  const getRandomPassword = () => {
+    let passNum = ""
+    let passChar = ""
+
+    for (let i = 0; i < 10; i++) {
+      passNum += Math.floor(Math.random() * 10)
+    }
+    for (let i = 0; i < 10; i++) {
+      passChar += String.fromCharCode(Math.floor(Math.random() * 28) + 98)
+    }
+
+    let result = Array.from(passNum.length > passChar.length ? passNum : passChar,
+      (_, i) => (passNum[i] || "") + (passChar[i] || "")).join("")
+    return result;
+  }
   return (
     <RegisterStyled>
       <div className="registerContainer">
@@ -59,22 +94,30 @@ const Register = (props: any) => {
             <h1 className="register">Register </h1>
             <form onSubmit={handleSubmit}>
               <label>Username </label>
+               <div className="labelCon" >
               <input
                 type="text"
                 placeholder="Enter Your Username"
                 className="registerName"
-                required
+                  required
+                  value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              <div onClick={getRandomName} className='generateBtn' >generate username </div>
+              </div>
               <label>Email </label>
+                <div className="labelCon" >
               <input
                 type="email"
                 placeholder="Enter Your Email"
                 className="registerName"
-                required
+                  required
+                  value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
-              <label>Profession </label>
+                <div onClick={getRandomEmail} className='generateBtn'>generate email </div>
+                </div>
+                <label>Profession </label>
               <input
                 type="text"
                 placeholder="Optional: E.g Student"
@@ -83,22 +126,27 @@ const Register = (props: any) => {
                 onChange={(e) => setProfession(e.target.value)}
               ></input>
               <label>Password </label>
+              <div className="labelCon" >
               <div className="hidePassword" >
               { hidePassword ? <input
                 type="password"
                 placeholder="Enter Your Password"
                 className="registerPassword"
-                required
+                    required
+                    value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 ></input> :
               <input
                 type="text"
                 placeholder="Enter Your Password"
                 className="registerPassword"
-                required
+                      required
+                      value={password}
                 onChange={(e) => setPassword(e.target.value)}
                   ></input>}
-                {hidePassword ?<p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' cursor='pointer' />} </p>}
+                  {hidePassword ? <p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' cursor='pointer' />} </p>}
+                  <div  className='generateBtn' onClick={() => setPassword(getRandomPassword())} >generate password </div>
+                </div>
                 </div>
               <button className="registerBtn" type="submit">
                 Register{" "}
