@@ -45,6 +45,7 @@ export const StyledNav = styled.div`
     justify-content: space-between;
     gap: 20px;
     width: 100%;
+    /* border: 3px red solid; */
   }
  
   @media(max-width:980px) {
@@ -54,9 +55,12 @@ export const StyledNav = styled.div`
       top: 0;
       height: 100vh;
       display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
       transition: all 0.5s ease;
       gap: 20px;
+      /* border: 2px red solid; */
     }
     .hamburgerMode{
       display: flex;
@@ -65,10 +69,11 @@ export const StyledNav = styled.div`
       right: 0;
       top: 0;
       width: 70%;
-      height: 100vh;
+      height: 1000vh;
       transition: 0.5s all ease;
       background-color: #283241;
       z-index: 999;
+      /* border: 2px red solid; */
     }
     .burger{
       display: flex;
@@ -76,7 +81,6 @@ export const StyledNav = styled.div`
       justify-content: flex-end;
       align-items: center;
       height: 50vh;
-      /* border: 2px green solid; */
     }
     span{
       display:flex;

@@ -3,6 +3,17 @@ import styled from "styled-components";
 export const StyledHero = styled.div`
   .heroPostContainer{
     margin: 150px auto;
+    width: 100%;
+   .subHeroPost{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   }
+  }
+  .heroContainer{
+    /* border: 3px green solid; */
+    width: 100%;
   }
   .heroImg {
     background-position: center;
@@ -49,7 +60,7 @@ export const StyledHero = styled.div`
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border: 1px green red;
+    border: 1px green ;
   }
   .heroCard {
     width: 40%;
@@ -59,7 +70,7 @@ export const StyledHero = styled.div`
     }
     h1{
       color: white;
-      line-height: 40px;
+      line-height: 50px;
     }
     h1:hover{
       text-decoration: underline;
