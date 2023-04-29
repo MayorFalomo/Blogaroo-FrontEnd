@@ -111,8 +111,8 @@ export const SinglePostStyled = styled.div`
   }
   .singlePostDescription {
     font-family: Inter;
-    font-size: 24px;
-    width: 80%;
+    font-size: 20px;
+    width: 95%;
     line-height: 35px;
     white-space: pre-wrap;
   }

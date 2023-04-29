@@ -4,11 +4,12 @@ import { HiUserGroup } from "react-icons/hi";
 import { SettingsStyle } from "./Settings.styled";
 import { Context } from "../../helper/Context";
 import axios from "axios";
+import { AiOutlineCheck } from "react-icons/ai";
 
 type Props = {};
 
 const Settings = (props: any) => {
-  const [file, setFile] = useState<any>();
+  const [uploadSuccessful, setUploadSuccessful] = useState<boolean>(false);
   const [username, setUserName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -24,6 +25,10 @@ const Settings = (props: any) => {
       .post("https://api.cloudinary.com/v1_1/dsghy4siv/image/upload", formData)
       .then((res) => setProfilePic(res.data.url))
       .catch((err) => console.log(err));
+    setUploadSuccessful(true)
+     setTimeout(() => {
+        setUploadSuccessful(false);
+      }, 3000);
   };
 
   const handleSubmit = async (e: any) => {
@@ -66,10 +71,10 @@ const Settings = (props: any) => {
                       className="profileImage"
                       style={{ backgroundImage: `url(${user.profilePic})` }}
                     ></div>
-                    <label className="fileInput" htmlFor="fileInput">
-                      Upload Image : 
-                        <HiUserGroup className="hiUser" />
-                    </label>
+                    {uploadSuccessful ? <p>Upload successful {<AiOutlineCheck fontSize='40px' color="green"/>} </p> : <label className="fileInput" htmlFor="fileInput">
+                      Upload Image :
+                      <HiUserGroup className="hiUser" />
+                    </label>}
                     <input
                       type="file"
                       id="fileInput"

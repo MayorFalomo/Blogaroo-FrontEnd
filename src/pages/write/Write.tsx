@@ -61,8 +61,9 @@ const Write = () => {
       <div className="writeStyle" >
         <Navbar />
             <div className="WriteContainer">
-              <form onSubmit={handelSubmit}>
-                <div className="writeFormGroup">
+          <form onSubmit={handelSubmit}>
+            <p style={{color: 'green', marginLeft: '10px'}} >N:B: You need to upload an image first! </p>
+            <div className="writeFormGroup">
                   <Tippy content='Upload Image'>
                     <label htmlFor="fileInput">
                       <AiOutlinePlus className="writeIcon" />{" "}

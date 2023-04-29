@@ -111,5 +111,8 @@ export const PostStyled = styled.div`
       display: flex;
       gap: 20px;
     }
+    .postTitle{
+      font-size: 30px;
+    }
   }
 `;
