@@ -49,13 +49,14 @@ export const RegisterStyled = styled.div`
     position: relative;
   }
   .registerCon {
-    padding: 50px 50px;
+    padding: 20px 50px;
     background-color: #fff;
     color: black;
     border-radius: 10px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
       max-width: 500px;
+      /* border: 2px red solid; */
   }
   .registerBtn {
     display: flex;
