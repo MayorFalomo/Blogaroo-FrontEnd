@@ -12,7 +12,7 @@ export const RegisterStyled = styled.div`
        .generateBtn{
                 position: absolute;
                 right: -50px;
-                top: 20px;
+                top: 10px;
                 z-index: 1;
                 padding: 7px 10px;
                 background-color: #000;
@@ -23,11 +23,11 @@ export const RegisterStyled = styled.div`
     }
   }
   form input {
-    padding: 10px 25px;
+    padding: 10px 20px;
     border: none;
     outline: none;
     border-radius: 7px;
-    margin: 20px auto;
+    margin: 10px auto;
     background-color: #2d3746;
     color: #fff;
     font-size: 16px;
@@ -49,7 +49,7 @@ export const RegisterStyled = styled.div`
     position: relative;
   }
   .registerCon {
-    padding: 20px 50px;
+    padding: 20px 45px;
     background-color: #fff;
     color: black;
     border-radius: 10px;
@@ -77,8 +77,8 @@ export const RegisterStyled = styled.div`
     border: 1px black solid;
     transition: 0.4s ease;
   }
-  h1 {
-    font-size: 40px;
+  h3 {
+    font-size: 30px;
     margin: 20px auto;
   }
   .loginBtn {
@@ -87,8 +87,8 @@ export const RegisterStyled = styled.div`
     border: none;
     outline: none;
     position: absolute;
-    right: 20px;
-    top: 50px;
+    right: 25px;
+    top: 90px;
     border-radius: 7px;
     font-size: 18px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
@@ -108,7 +108,7 @@ export const RegisterStyled = styled.div`
     .hideIcon{
       position: absolute;
       right: 5px;
-      top: 28px;
+      top: 20px;
       color: white;
     }
   }

@@ -91,7 +91,7 @@ const Register = (props: any) => {
       <div className="registerContainer">
         <div className="subContainer">
           <div className="registerCon">
-            <h1 className="register">Register </h1>
+            <h3 className="register">Register </h3>
             <form onSubmit={handleSubmit}>
               <label>Username </label>
                <div className="labelCon" >
@@ -130,7 +130,7 @@ const Register = (props: any) => {
               <div className="hidePassword" >
               { hidePassword ? <input
                 type="password"
-                placeholder="Enter Your Password"
+                placeholder="Enter Password"
                 className="registerPassword"
                     required
                     value={password}
@@ -138,14 +138,14 @@ const Register = (props: any) => {
                 ></input> :
               <input
                 type="text"
-                placeholder="Enter Your Password"
+                placeholder="Enter Password"
                 className="registerPassword"
                       required
                       value={password}
                 onChange={(e) => setPassword(e.target.value)}
                   ></input>}
                   {hidePassword ? <p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' cursor='pointer' />} </p>}
-                  <div  className='generateBtn' onClick={() => setPassword(getRandomPassword())} >generate password </div>
+                  {/* <div  className='generateBtn' onClick={() => setPassword(getRandomPassword())} >generate password </div> */}
                 </div>
                 </div>
               <button className="registerBtn" type="submit">
