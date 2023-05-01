@@ -30,12 +30,13 @@ export const AllUsersStyled = styled.div`
     }
     h1{
         text-align: center;
-        margin: 20px 20px;
+        margin: 20px auto;
     }
     p{
         text-align: center;
         margin: 20px;
         font-size: 24px;
+        /* border: 2px red solid; */
     }
 }
 .loaders{
