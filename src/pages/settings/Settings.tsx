@@ -15,6 +15,7 @@ const Settings = (props: any) => {
   const [password, setPassword] = useState<string>("");
   const [profilePic, setProfilePic] = useState<string>("");
   const [success, setSuccess] = useState<boolean>(false);
+  const [failed, setFailed] = useState<boolean>(false);
   const { user, dispatch } = useContext(Context);
 
   const uploadImage = async (files: any) => {
@@ -36,10 +37,10 @@ const Settings = (props: any) => {
     dispatch({ type: "UPDATE_START" });
     const updatedUser = {
       userId: user._id,
-      username,
-      email,
-      password,
-      profilePic,
+      username: username.length === 0 ? user.username : username,
+      email: email.length === 0 ? user.email : email,
+      password: password.length === 0 ? user.password : password, 
+      profilePic: profilePic.length === 0 ? user.profilePic : profilePic,
     };
     try {
       const res = await axios.put("https://blogaroo-backend.vercel.app/api/users/" + user._id, updatedUser);
@@ -47,6 +48,7 @@ const Settings = (props: any) => {
       dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
     } catch (err) {
       console.log(err);
+      setFailed(true)
       dispatch({ type: "UPDATE_FAILURE" });
     }
   };
@@ -117,6 +119,18 @@ const Settings = (props: any) => {
                     }}
                   >
                     Profile has been successfully updated...{" "}
+                  </p>
+                )}
+                {failed && (
+                  <p
+                    style={{
+                      color: "red",
+                      fontSize: 18,
+                      textAlign: "center",
+                      marginTop: 20,
+                    }}
+                  >
+                    This name has already been taken...{" "}
                   </p>
                 )}
               </form>

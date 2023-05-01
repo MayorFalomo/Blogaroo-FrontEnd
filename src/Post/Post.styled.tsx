@@ -6,7 +6,9 @@ export const PostStyled = styled.div`
     align-items: center;
   }
   .subContainer {
-    width: 400px;
+    /* width: 400px; */
+    width: 100%;
+    /* border: 1px solid red; */
   }
   .postTitle {
     font-size: 32px;
@@ -34,7 +36,7 @@ export const PostStyled = styled.div`
     font-family: 'Inter';
   }
   .image {
-    max-width: 400px;
+    /* max-width: 450px; */
     width: 100%;
     height: 300px;
     background-repeat: no-repeat;
