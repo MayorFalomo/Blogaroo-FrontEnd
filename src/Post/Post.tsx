@@ -98,7 +98,7 @@ const Post = (props: any) => {
                     )}
                   </p>
                 )}
-                <p className='noOfComments' >{props.post?.comments.length} </p>
+                <p className='noOfComments' >{props.post?.comments?.length} </p>
                 </div>
               </ul>
               <div className="likesText" >{likesArray && <p> {likesArray.length === 0 ? `No likes Yet!` : `Liked by ${likesArray[0].username} and ${likesArray.length -1} others`}</p>}</div>
