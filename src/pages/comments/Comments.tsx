@@ -114,7 +114,7 @@ const Comments = (props: any) => {
           <div className='comment' >
               <textarea typeof='text' onChange={(e:any) => setComments(e.target.value)} value={comments} className='commentInput' placeholder='Add a comment' />
               </div>
-          <button onClick={handleComment} className='submitComment' disabled={comments?.length == 0} type='submit' >Comment </button>
+          {comments?.length > 0 ?  <button onClick={handleComment} className='submitComment' disabled={comments?.length < 1 } type='submit' >Comment </button> : <button  className='disabledBtn' disabled={true}>Comments </button>}
           {commentAdded ? <p className='commentSuccess' >"Your comment has been added"</p> : ""}
         </div>
         </div>

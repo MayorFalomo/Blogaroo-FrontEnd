@@ -184,13 +184,30 @@ export const CommentStyled = styled.div`
     margin: auto;
     cursor: pointer;
   }
+  .disabledBtn{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+  .submitComment{
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    cursor: pointer;
+  }
   .commentSuccess{
     display: flex;
     justify-content: center;
     align-items: center;
     color: green;
     font-size: 24px;
-    margin: 0 auto;
+    margin: 20px auto;
   }
   .commentsHeading{
     display: flex;

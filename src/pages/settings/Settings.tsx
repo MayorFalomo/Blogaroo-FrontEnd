@@ -5,6 +5,9 @@ import { SettingsStyle } from "./Settings.styled";
 import { Context } from "../../helper/Context";
 import axios from "axios";
 import { AiOutlineCheck } from "react-icons/ai";
+import "tippy.js/dist/tippy.css";
+import Tippy from "@tippyjs/react";
+
 
 type Props = {};
 
@@ -73,10 +76,13 @@ const Settings = (props: any) => {
                       className="profileImage"
                       style={{ backgroundImage: `url(${user.profilePic})` }}
                     ></div>
-                    {uploadSuccessful ? <p>Upload successful {<AiOutlineCheck fontSize='40px' color="green"/>} </p> : <label className="fileInput" htmlFor="fileInput">
-                      Upload Image :
-                      <HiUserGroup className="hiUser" />
-                    </label>}
+                    {uploadSuccessful ? <p>Upload successful {<AiOutlineCheck fontSize='40px' color="green" />} </p> :
+                        <Tippy content="Upload Image" >
+                        <label className="fileInput" htmlFor="fileInput">
+                      {/* Upload Image : */}
+                        <HiUserGroup className="hiUser" />
+                        </label>
+                      </Tippy>}
                     <input
                       type="file"
                       id="fileInput"
