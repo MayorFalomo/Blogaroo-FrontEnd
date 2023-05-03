@@ -47,6 +47,8 @@ const Post = (props: any) => {
     setLikesArray(filtered);
   };  
   
+  // console.log(props.post?._id);
+  
   
 
   return (
