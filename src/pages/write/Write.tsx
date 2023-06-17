@@ -10,6 +10,7 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 
+
 const Write = () => {
   const [title, setTitle] = useState<string>("");
   const [desc, setDesc] = useState<string>("");

@@ -79,7 +79,6 @@ const Settings = (props: any) => {
                     {uploadSuccessful ? <p>Upload successful {<AiOutlineCheck fontSize='40px' color="green" />} </p> :
                         <Tippy content="Upload Image" >
                         <label className="fileInput" htmlFor="fileInput">
-                      {/* Upload Image : */}
                         <HiUserGroup className="hiUser" />
                         </label>
                       </Tippy>}

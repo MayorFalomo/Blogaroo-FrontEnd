@@ -38,32 +38,34 @@ const Login = (props: any) => {
 
   return (
     <LoginStyled>
-      <div className="loginContainer">
+      <div  style={{ backgroundImage:`url(./watch.jpg)`}} className="loginContainer">
         <div className="subContainer">
           <div className="shadowCon">
             <div className="loginTitle">Login </div>
             <form onSubmit={handleSubmit}>
               <label>Username </label>
+              <div className="userInput" >
               <input
                 type="text"
                 ref={userRef}
                 className="loginInput"
-                placeholder="Enter Your Username"
+                placeholder="Enter Your Username..."
                 required
-              />
+                />
+                </div>
               <label>Password </label>
               <div className="hidePassword" >
                 {hidePassword ? <input
                   type="password"
                   ref={passwordRef}
                   className="loginInput"
-                  placeholder="Enter Your Password"
+                  placeholder="Enter Your Password..."
                   required
                 /> :<input
                   type="text"
                   ref={passwordRef}
                   className="loginInput"
-                  placeholder="Enter Your Password"
+                  placeholder="Enter Your Password..."
                   required
                 />}
                 {hidePassword ?<p className="hideIcon" onClick={() => setHidePassword(false)} >{<IoEyeOutline fontSize='22' cursor='pointer' />}</p> : <p className="hideIcon" onClick={() => setHidePassword(true)} >{<BiHide fontSize='20' />} </p>}
@@ -71,10 +73,11 @@ const Login = (props: any) => {
               <button className="loginBtn" disabled={isFetching}>
                 Login{" "}
               </button>
-              <p>{errorMessage ? "Check username and password again!"  : ""} </p>
-              <Link to="/register">
+              <p className="errorTxt" >{errorMessage ? "Check username and password again!" : ""} </p>
+              <p className="signUp" >Don't have an account?  <Link to='/register' style={{color: "blue"}} > Sign up</Link> </p>
+              {/* <Link to="/register">
                 <button className="loginRegisterBtn">Register </button>{" "}
-              </Link>
+              </Link> */}
             </form>
           </div>
         </div>

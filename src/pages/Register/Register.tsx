@@ -41,14 +41,14 @@ const Register = (props: any) => {
           res.data && window.location.replace("/");
         } catch (err) {
           dispatch({ type: "LOGIN_FAILURE" });
-         
-        }
-      })
-      .catch((err) => console.log(err));
-     setErrorMessage(true)
+          err && setErrorMessage(true)
           setTimeout(() => {
             setErrorMessage(false)
           }, 6000)
+        }
+      })
+      .catch((err) => console.log(err));
+          
   };
 
   const getRandomEmail = () => {
@@ -88,7 +88,7 @@ const Register = (props: any) => {
   }
   return (
     <RegisterStyled>
-      <div className="registerContainer">
+      <div style={{ backgroundImage:`url(./old.jpg)`}} className="registerContainer">
         <div className="subContainer">
           <div className="registerCon">
             <h3 className="register">Register </h3>
@@ -114,9 +114,10 @@ const Register = (props: any) => {
                   required
                   value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              ></input>
+              />
                 <div onClick={getRandomEmail} className='generateBtn'>generate email </div>
-                </div>
+              </div>
+              <div  className="labelCon" >
                 <label>Profession </label>
               <input
                 type="text"
@@ -124,7 +125,8 @@ const Register = (props: any) => {
                 className="registerProfession"
                 // required
                 onChange={(e) => setProfession(e.target.value)}
-              ></input>
+                />
+                </div>
               <label>Password </label>
               <div className="labelCon" >
               <div className="hidePassword" >
@@ -152,10 +154,11 @@ const Register = (props: any) => {
                 Register{" "}
               </button>
               <p  className="errorMessage">{errorMessage ? "Failed to Register, please try again" : ""} </p>
-              <p className="note" >{errorMessage ? "N.B: Usernames are unique so maybe that username is taken." : "" }</p>
-              <Link to="/login">
+              <p className="note" >{errorMessage ? "N.B: Usernames are unique so maybe that username is taken." : ""}</p>
+              <p className="login" >Already have an account? <Link to="/login" style={{color: "blue"}} >Login </Link> </p>
+              {/* <Link to="/login">
                 <button className="loginBtn">Login </button>{" "}
-              </Link>
+              </Link> */}
             </form>
           </div>
         </div>

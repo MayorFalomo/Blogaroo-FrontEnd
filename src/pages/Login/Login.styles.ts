@@ -6,6 +6,11 @@ export const LoginStyled = styled.div`
     justify-content: center;
     height: 100vh;
     position: relative;
+    background-color: #000;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
   }
   .loginContainer form {
     display: flex;
@@ -15,8 +20,13 @@ export const LoginStyled = styled.div`
   .subContainer {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
+    /* border: 2px red solid; */
+      /* max-width: 100%; */
+      /* width: 800px; */
+      width: 100%;
+
   }
   .shadowCon {
     border-radius: 10px;
@@ -25,6 +35,11 @@ export const LoginStyled = styled.div`
     padding: 50px 50px;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    width: 600px;
+  max-width: 60%;
+  @media (max-width: 620px ) {
+    max-width: 90%;
+  }
   }
   .subContainer form {
     display: flex;
@@ -36,15 +51,23 @@ export const LoginStyled = styled.div`
     margin: 20px auto;
     text-align: center;
   }
+  .userInput{
+    width: 100%;
+  }
+  .hidePassword{
+    width: 100%;
+    margin-bottom: 30px;
+  }
   form input {
     padding: 10px 25px;
-    margin: 20px auto;
+    margin: 10px auto;
     border-radius: 7px;
     border: none;
     outline: none;
-    background-color: #2d3746;
+    background-color: #000;
     color: #fff;
     font-size: 15px;
+    width: 100%;
   }
   form input::placeholder {
     color: white;
@@ -65,6 +88,7 @@ export const LoginStyled = styled.div`
       rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     font-size: 20px;
     cursor: pointer;
+    transition: all 0.4s ease;
     /* border: 3px red solid; */
   }
   form .loginBtn:hover {
@@ -82,9 +106,14 @@ export const LoginStyled = styled.div`
     cursor: pointer;
     font-size: 20px;
   }
-  p{
+  .errorTxt{
     margin-top: 20px;
     color: red;
+  }
+  .signUp{
+    margin: 5px auto;
+    font-size: calc(14px + 0.25vw);
+    font-weight:400;
   }
   .hidePassword{
     /* border: 2px red solid; */
@@ -92,7 +121,7 @@ export const LoginStyled = styled.div`
     .hideIcon{
       position: absolute;
       right: 5px;
-      top: 10px;
+      top: 18px;
       color: #fff;
     }
   }
