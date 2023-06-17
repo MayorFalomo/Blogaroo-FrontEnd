@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { StyledNav } from "./Navbar.styled";
 import { CiSearch } from "react-icons/ci";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -10,10 +10,13 @@ type Props = {};
 const Navbar = (props: any) => {
   const { user, dispatch } = useContext(Context);
 
+  const navigate = useNavigate()
+
   const { setSearchPost } = useContext(AppContext);
   const [hamburger, setHamburger] = useState(false)
 
   const handleLogOut = () => {
+    navigate("/login")
     dispatch({ type: "LOG_OUT" });
   };
 
@@ -65,7 +68,7 @@ const Navbar = (props: any) => {
             <NavLink to="/login" style={({ isActive }) => ({
                 color: isActive ? "black" : "white",
               })}>
-              <li onClick={handleLogOut}>Log Out </li>
+              <li onClick={handleLogOut}> Log Out </li>
             </NavLink>
           </ul>
           <form onSubmit={handleSubmit} className={hamburger ? "hamburger-form" : ""} >

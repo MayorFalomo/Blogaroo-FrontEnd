@@ -107,8 +107,9 @@ export const LoginStyled = styled.div`
     font-size: 20px;
   }
   .errorTxt{
-    margin-top: 20px;
+    margin: 20px auto;
     color: red;
+    text-align: center;
   }
   .signUp{
     margin: 5px auto;

@@ -52,7 +52,7 @@ const Reducer = (state: State, action: ActionTypes) => {
       };
     case "LOG_OUT":
       return {
-        user: null,
+        user: {},
         isFetching: false,
         error: true,
       };

@@ -42,7 +42,7 @@ function App() {
   console.log(user, "This is user");
   
   useEffect(() => {
-    Object.keys(user)?.length === 0 ? navigate("/register") : navigate("/")
+   user == null ? navigate("/register") : navigate("/")
   }, [user])
 
   useEffect(() => {
