@@ -4,7 +4,7 @@ import { AppContext, Context } from "./helper/Context";
 import GlobalStyle from "./GlobalStyles";
 import Homepage from "./pages/homepage/Homepage";
 import axios from "axios";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Router, useNavigate } from "react-router-dom";
 import Write from "./pages/write/Write";
 import SinglePost from "./components/singlePost/SinglePost";
 import Register from "./pages/Register/Register";
@@ -36,6 +36,14 @@ function App() {
       setCompletedPreload(true);
     }, 4000);
   }, []);
+
+  const navigate = useNavigate();
+
+  console.log(user, "This is user");
+  
+  useEffect(() => {
+    Object.keys(user)?.length === 0 ? navigate("/register") : navigate("/")
+  }, [user])
 
   useEffect(() => {
     const fetchPosts = async (params:any) => {
