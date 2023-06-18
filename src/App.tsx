@@ -38,11 +38,9 @@ function App() {
   }, []);
 
   const navigate = useNavigate();
-
-  console.log(user, "This is user");
   
   useEffect(() => {
-   user == null ? navigate("/register") : navigate("/")
+   user == null || {} ? navigate("/register") : navigate("/")
   }, [user])
 
   useEffect(() => {
