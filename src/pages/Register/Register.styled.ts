@@ -7,9 +7,10 @@ export const RegisterStyled = styled.div`
   background-size: cover;
   background-color: black;
   object-fit: cover;
+  height: 100vh;
 }
  .registerCon {
-    padding: 20px 45px;
+    padding: 20px 30px;
     background-color: #fff;
     color: black;
     border-radius: 10px;
@@ -19,6 +20,8 @@ export const RegisterStyled = styled.div`
       width: 600px;
       @media (max-width: 550px ) {
         max-width: 95%;
+        background-color: #fff;
+        padding: 20px 10px;
       }
   }
   form {
@@ -33,8 +36,8 @@ export const RegisterStyled = styled.div`
       width: 100%;
        .generateBtn{
                 position: absolute;
-                right: -50px;
-                top: 10px;
+                right: -3px;
+                top: 13px;
                 z-index: 1;
                 padding: 7px 10px;
                 background-color: #000;
