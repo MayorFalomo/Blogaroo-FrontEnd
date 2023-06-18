@@ -39,9 +39,9 @@ function App() {
 
   const navigate = useNavigate();
   
-  useEffect(() => {
-   user == null || {} ? navigate("/register") : navigate("/")
-  }, [user])
+  // useEffect(() => {
+  //  user == null || {} ? navigate("/register") : navigate("/")
+  // }, [user])
 
   useEffect(() => {
     const fetchPosts = async (params:any) => {
